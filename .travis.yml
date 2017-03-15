@@ -1,0 +1,16 @@
+language: android # this means the project will be built in an Android environment
+jdk: oraclejdk8
+android:
+  components:
+  - tools # will be built with latest version of Android SDK tools
+  - platform-tools 
+  - build-tools-25.0.2 # build tools version of my project
+  - android-23 # Android SDK version of my project
+  # Additional components
+  - extra-android-m2repository # design support library
+  - extra-google-m2repository # Google Play Services
+script: 
+ - ./gradlew build # connectedCheck
+after_success:
+ # codacy
+
