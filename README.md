@@ -5,6 +5,6 @@
 Bloeddonatie aims to motivate people to donate blood
 
 ## Firebase configuration
-- Go to [Firebase Console](https://console.firebase.google.com/project/bloeddonatie-bd78c/settings/general/android:com.team_htbr.a1617proj1Bloeddonatie_app) and donwload the google-services.json file
+- Go to [Firebase Console](https://console.firebase.google.com/project/bloeddonatie-bd78c/settings/general/android:com.team_htbr.a1617proj1Bloeddonatie_app) and download the google-services.json file
 - Place this file in the `app` directory
 
