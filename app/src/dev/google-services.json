@@ -8,7 +8,7 @@
       "client_info": {
         "mobilesdk_app_id": "",
         "android_client_info": {
-          "package_name": "com.your.package"
+          "package_name": "com.team_htbr.a1617proj1bloeddonatie_app"
         }
       },
       "oauth_client": [
@@ -20,7 +20,7 @@
           "client_id": "",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.your.package",
+            "package_name": "com.team_htbr.a1617proj1bloeddonatie_app",
             "certificate_hash": ""
           }
         }
