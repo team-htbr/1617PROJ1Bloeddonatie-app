@@ -8,3 +8,8 @@ Bloeddonatie aims to motivate people to donate blood
 - Go to [Firebase Console](https://console.firebase.google.com/project/bloeddonatie-bd78c/settings/general/android:com.team_htbr.a1617proj1Bloeddonatie_app) and download the google-services.json file
 - Place this file in the `app` directory
 
+## Things we learned when developing an Android application
+
+### Package names are case sensitive
+When trying to send a notification to our application using Firebase Notifications we mistyped a capital `B` instead of `b` when adding our app to Firebase. This caused us to not receive any notifcations. 
+
