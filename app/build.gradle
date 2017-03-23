@@ -35,8 +35,12 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+	// Firebase notifications
+	compile 'com.google.firebase:firebase-core:10.2.1'
+	compile 'com.google.firebase:firebase-messaging:10.2.1'
 }
 
+// Customize build command for Travis CI
 def build_param = "${build}";
 
 if (build_param != "dev") {
