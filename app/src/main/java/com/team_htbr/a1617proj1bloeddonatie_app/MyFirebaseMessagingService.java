@@ -52,7 +52,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 		NotificationCompat.Builder notifiBuilder = new NotificationCompat.Builder(this)
 			.setSmallIcon(R.mipmap.ic_launcher)
-			.setContentTitle("Firebase Cloud Messaging")
+			.setContentTitle("Bloeddonatie")
 			.setContentText(body)
 			.setAutoCancel(true)
 			.setSound(notificationSound)
