@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+		setTitle("Rode Kruis");
 
 		Button btnShowToken = (Button)findViewById(R.id.button_show_token);
 		btnShowToken.setOnClickListener(new View.OnClickListener() {
@@ -28,5 +30,10 @@ public class MainActivity extends AppCompatActivity {
 				Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
 			}
 		});
+
+		// Subscribing to a blood type
+		FirebaseMessaging.getInstance().subscribeToTopic("blood-AB");
+		// Uncomment this line to effectively unsubscribe from topic
+		// FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-AB");
     }
 }
