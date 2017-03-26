@@ -38,7 +38,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 	}
 
 	/**
-	 * Dispay the notification
+	 * Display the notification
 	 * @param body
 	 */
 	private void sendNotification(String body) {
