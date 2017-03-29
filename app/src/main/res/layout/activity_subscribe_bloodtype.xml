@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="com.team_htbr.a1617proj1bloeddonatie_app.SubscribeBloodtypeActivity">
+
+	<Button
+		android:id="@+id/button8"
+		android:layout_width="162dp"
+		android:layout_height="47dp"
+		android:text="O"
+		tools:layout_editor_absoluteX="233dp"
+		tools:layout_editor_absoluteY="120dp" />
+
+	<Button
+		android:id="@+id/button7"
+		android:layout_width="162dp"
+		android:layout_height="47dp"
+		android:text="A"
+		tools:layout_editor_absoluteX="16dp"
+		tools:layout_editor_absoluteY="16dp" />
+
+	<Button
+		android:id="@+id/button6"
+		android:layout_width="162dp"
+		android:layout_height="47dp"
+		android:text="B"
+		tools:layout_editor_absoluteX="233dp"
+		tools:layout_editor_absoluteY="16dp" />
+
+	<Button
+		android:id="@+id/button3"
+		android:layout_width="162dp"
+		android:layout_height="47dp"
+		android:text="AB"
+		tools:layout_editor_absoluteX="16dp"
+		tools:layout_editor_absoluteY="120dp" />
+
+</android.support.constraint.ConstraintLayout>
