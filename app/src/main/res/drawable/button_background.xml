@@ -3,5 +3,13 @@
 
 	<item
 		android:state_selected="true"
+		android:drawable="@color/button_selected"
+		/>
+
+	<item
+		android:state_selected="false"
 		android:drawable="@color/button_selected" />
+
+	<item android:drawable="@color/button_default" />
+
 </selector>

@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 		// Subscribing to a blood type
-		FirebaseMessaging.getInstance().subscribeToTopic("blood-AB");
+		//FirebaseMessaging.getInstance().subscribeToTopic("blood-AB");
 		// Uncomment this line to effectively unsubscribe from topic
 		// FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-AB");
     }

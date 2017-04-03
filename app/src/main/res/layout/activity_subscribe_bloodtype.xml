@@ -11,6 +11,7 @@
 		android:layout_width="0dp"
 		android:layout_height="48dp"
 		android:text="O"
+		android:background="@color/button_default"
 		tools:layout_constraintTop_creator="1"
 		tools:layout_constraintRight_creator="1"
 		app:layout_constraintRight_toRightOf="@+id/buttonB"
@@ -25,6 +26,7 @@
 		android:layout_width="162dp"
 		android:layout_height="48dp"
 		android:text="B"
+		android:background="@color/button_default"
 		tools:layout_constraintTop_creator="1"
 		tools:layout_constraintRight_creator="1"
 		android:layout_marginEnd="16dp"
@@ -38,6 +40,7 @@
 		android:layout_width="162dp"
 		android:layout_height="48dp"
 		android:text="AB"
+		android:background="@color/button_default"
 		android:layout_marginStart="16dp"
 		app:layout_constraintBaseline_toBaselineOf="@+id/buttonO"
 		tools:layout_constraintBaseline_creator="1"
@@ -51,6 +54,7 @@
 		android:layout_height="48dp"
 		android:layout_marginTop="27dp"
 		android:text="A"
+		android:background="@color/button_default"
 		app:layout_constraintHorizontal_bias="1.0"
 		app:layout_constraintLeft_toLeftOf="@+id/buttonAB"
 		app:layout_constraintRight_toRightOf="@+id/buttonAB"
@@ -58,5 +62,13 @@
 		tools:layout_constraintLeft_creator="1"
 		tools:layout_constraintRight_creator="1"
 		tools:layout_constraintTop_creator="1" />
+
+	<TextView
+		android:id="@+id/testID"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="TextView"
+		tools:layout_editor_absoluteX="176dp"
+		tools:layout_editor_absoluteY="412dp" />
 
 </android.support.constraint.ConstraintLayout>
