@@ -1,5 +1,6 @@
 package com.team_htbr.a1617proj1bloeddonatie_app;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,8 +32,15 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
+		Button btnBloodtype = (Button)findViewById(R.id.Bloodtype);
+		btnBloodtype.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, SubscribeBloodtypeActivity.class));
+			}
+		});
 		// Subscribing to a blood type
-		FirebaseMessaging.getInstance().subscribeToTopic("blood-AB");
+		//FirebaseMessaging.getInstance().subscribeToTopic("blood-AB");
 		// Uncomment this line to effectively unsubscribe from topic
 		// FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-AB");
     }
