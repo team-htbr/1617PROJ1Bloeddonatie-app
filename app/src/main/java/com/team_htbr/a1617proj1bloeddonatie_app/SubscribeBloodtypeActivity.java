@@ -17,8 +17,6 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 	Button TypeAB;
 	Button TypeO;
 
-	TextView test;
-
 	String bloodType;
 
 
@@ -34,8 +32,6 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 		TypeAB = (Button)findViewById(R.id.buttonAB);
 		TypeO = (Button)findViewById(R.id.buttonO);
 
-		test = (TextView) findViewById(R.id.testID);
-
 		getInfo();
 
 		switch (bloodType) {
@@ -50,40 +46,51 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 			default: break;
 		}
 
-
 		TypeA.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				clearButtons();
-				v.setBackgroundColor(getResources().getColor(R.color.button_selected));
-				saveInfo("A");
+				if (! bloodType.equals("A")) {
+					clearButtons();
+					v.setBackgroundColor(getResources().getColor(R.color.button_selected));
+					saveInfo("A");
+					getInfo();
+				}
 			}
 		});
 
 		TypeB.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				clearButtons();
-				v.setBackgroundColor(getResources().getColor(R.color.button_selected));
-				saveInfo("B");
+				if (! bloodType.equals("B")) {
+					clearButtons();
+					v.setBackgroundColor(getResources().getColor(R.color.button_selected));
+					saveInfo("B");
+					getInfo();
+				}
 			}
 		});
 
 		TypeAB.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				clearButtons();
-				v.setBackgroundColor(getResources().getColor(R.color.button_selected));
-				saveInfo("AB");
+				if (! bloodType.equals("AB")) {
+					clearButtons();
+					v.setBackgroundColor(getResources().getColor(R.color.button_selected));
+					saveInfo("AB");
+					getInfo();
+				}
 			}
 		});
 
 		TypeO.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				clearButtons();
-				v.setBackgroundColor(getResources().getColor(R.color.button_selected));
-				saveInfo("O");
+				if (! bloodType.equals("O")) {
+					clearButtons();
+					v.setBackgroundColor(getResources().getColor(R.color.button_selected));
+					saveInfo("O");
+					getInfo();
+				}
 			}
 		});
 
@@ -117,7 +124,5 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 		SharedPreferences sharedPref = getSharedPreferences("userInfo", MODE_PRIVATE);
 
 		bloodType = sharedPref.getString("bloodtype", "");
-
-		test.setText(bloodType);
 	}
 }
