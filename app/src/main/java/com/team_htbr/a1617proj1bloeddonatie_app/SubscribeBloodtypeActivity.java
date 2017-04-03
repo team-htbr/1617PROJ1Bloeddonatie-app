@@ -49,51 +49,44 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 		TypeA.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (! bloodType.equals("A")) {
-					clearButtons();
-					v.setBackgroundColor(getResources().getColor(R.color.button_selected));
-					saveInfo("A");
-					getInfo();
-				}
+				handlings("A", v);
 			}
 		});
 
 		TypeB.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (! bloodType.equals("B")) {
-					clearButtons();
-					v.setBackgroundColor(getResources().getColor(R.color.button_selected));
-					saveInfo("B");
-					getInfo();
-				}
+				handlings("B", v);
 			}
 		});
 
 		TypeAB.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (! bloodType.equals("AB")) {
-					clearButtons();
-					v.setBackgroundColor(getResources().getColor(R.color.button_selected));
-					saveInfo("AB");
-					getInfo();
-				}
+				handlings("AB", v);
 			}
 		});
 
 		TypeO.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (! bloodType.equals("O")) {
-					clearButtons();
-					v.setBackgroundColor(getResources().getColor(R.color.button_selected));
-					saveInfo("O");
-					getInfo();
-				}
+				handlings("O", v);
 			}
 		});
 
+	}
+
+	private void handlings(String type, View view) {
+		if (! bloodType.equals(type)) {
+			clearButtons();
+			view.setBackgroundColor(getResources().getColor(R.color.button_selected));
+
+			saveInfo(type);
+			getInfo();
+
+			unsubscribe();
+			FirebaseMessaging.getInstance().subscribeToTopic("blood-" + type);
+		}
 	}
 
 	private void clearButtons() {
