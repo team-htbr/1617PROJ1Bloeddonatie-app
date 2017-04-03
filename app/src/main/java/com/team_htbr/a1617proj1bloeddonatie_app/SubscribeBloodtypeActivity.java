@@ -5,19 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class SubscribeBloodtypeActivity extends AppCompatActivity {
 
-	Button TypeA;
-	Button TypeB;
-	Button TypeAB;
-	Button TypeO;
+	private Button TypeA;
+	private Button TypeB;
+	private Button TypeAB;
+	private Button TypeO;
 
-	String bloodType;
+	private String bloodType;
 
 
 	@Override
