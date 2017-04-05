@@ -32,6 +32,7 @@
 		<activity
 			android:name=".SubscribeBloodtypeActivity"
 			android:label="@string/app_name" />
+		<activity android:name=".DonorTestActivity"></activity>
 	</application>
 
 </manifest>

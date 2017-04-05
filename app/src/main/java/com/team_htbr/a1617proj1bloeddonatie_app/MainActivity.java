@@ -17,11 +17,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 		setTitle("Rode Kruis");
 
-		Button btnShowToken = (Button)findViewById(R.id.button_show_token);
+		Button btnShowToken = (Button) findViewById(R.id.button_show_token);
 		btnShowToken.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
-		Button btnBloodtype = (Button)findViewById(R.id.Bloodtype);
+		Button btnBloodtype = (Button) findViewById(R.id.Bloodtype);
 		btnBloodtype.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -43,5 +43,14 @@ public class MainActivity extends AppCompatActivity {
 		//FirebaseMessaging.getInstance().subscribeToTopic("blood-AB");
 		// Uncomment this line to effectively unsubscribe from topic
 		// FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-AB");
-    }
+
+		Button btnDonorTest = (Button) findViewById(R.id.donorTest);
+		btnDonorTest.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, DonorTestActivity.class));
+			}
+		});
+
+	}
 }

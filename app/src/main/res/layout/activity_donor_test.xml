@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="com.team_htbr.a1617proj1bloeddonatie_app.DonorTestActivity">
+
+	<ScrollView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		tools:layout_editor_absoluteY="8dp"
+		tools:layout_editor_absoluteX="8dp">
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="368dp"
+			android:layout_height="495dp"
+			tools:layout_editor_absoluteY="8dp"
+			tools:layout_editor_absoluteX="8dp">
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Ben je ouder dan 18 jaar ?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Ben je ziek of ben je minder dan 2 weken terug gezond?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Is je BMI niet hoog of te laag?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Is je vorige donatie langer dan 2 maanden geleden?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Ben je in de laatste 6 maanden op reis gegaan naar het buitenland?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Ben je in de laatste 4 maanden een operatie ondergaan?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Ben je in de laatste 4 maanden een operatie ondergaan?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Ben je in de laatste 4 maanden een operatie ondergaan?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Ben je in de laatste 4 maanden een operatie ondergaan?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Ben je in de laatste 4 maanden een operatie ondergaan?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Ben je in de laatste 4 maanden een operatie ondergaan?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Ben je in de laatste 4 maanden een operatie ondergaan?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<TextView
+					android:text="Ben je in de laatste 4 maanden een operatie ondergaan?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp"
+					/>
+
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+
+
+
+</android.support.constraint.ConstraintLayout>
