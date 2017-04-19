@@ -83,6 +83,15 @@
         <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_e3a2b8773b65c5faa022d7d78422fd006da0b39d.jar" />
     </item>
     <item
+        is-multidex="true"
+        jar="C:\Android\.android\build-cache\5dd8f858d6b79e7acd9be796bee93ed1313e2184\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d0a843615f3b5fa3a080497709f5436696149a09">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d3c5d1b709faac955e290fc7403a8297f39a5bd5\classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="C:\Android\.android\build-cache\03ad0a618d3eb3cee4ee407a08f91cb3dab020af\output\jars\classes.jar"
         jumboMode="false"
@@ -171,6 +180,15 @@
         revision="25.0.2"
         sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
         <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_10a37e5ccf0243d52d9a898ec9dbbb7ff3c28ea7.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android\.android\build-cache\9031f66fc624ceeb259b485f6328da3dc32b4dba\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a7ffe939ffd830b5d4052f3c1c4c235923790ce">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b9505a1860826fdd1d80ee622aa92cff5879fd72\classes.dex" />
     </item>
     <item
         is-multidex="false"
