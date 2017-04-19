@@ -23,7 +23,6 @@ out/
 .gradle
 .gradle/
 build/
-!gradle-wrapper.jar
 
 # Signing files
 .signing/
@@ -104,6 +103,7 @@ Thumbs.db
 
 # Package Files #
 *.jar
+!gradle-wrapper.jar
 *.war
 *.ear
 
