@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="com.team_htbr.a1617proj1bloeddonatie_app.DonorTestActivity">
+
+	<ScrollView
+		android:layout_width="368dp"
+		android:layout_height="wrap_content"
+		tools:layout_editor_absoluteY="10dp"
+		tools:layout_editor_absoluteX="8dp">
+
+		<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			tools:layout_editor_absoluteY="10dp"
+			tools:layout_editor_absoluteX="10dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="20dp">
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Leeftijd"
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Ben je ouder dan 18 jaar ?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+
+				<TextView
+					android:text="Ben je ouder dan 18 jaar ?"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center_vertical"
+					android:layout_marginLeft="10dp"
+					android:textSize="15sp" />
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Ziektes "
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Ben je ziek of ben je minder dan 2 weken terug gezond?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Fysieke gezondheid"
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Is je BMI niet hoog of te laag?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent"
+					/>
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Vorige donaties"
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Is je vorige donatie langer dan 2 maanden geleden?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Buitenlandse reizen"
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Ben je in de laatste 6 maanden op reis gegaan naar het buitenland?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Operaties "
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Ben je in de laatste 4 maanden een operatie ondergaan?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Zwangerschap"
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Ben je zwanger of is ben je minder dan 6 maand geleden bevallen?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Tatoeages &amp; piercings"
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Heb je in de laatste 4 maanden een tatoeage of piercing laten zetten?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Contact met bloed"
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Ben je in de laatste 4 maanden in contact gekomen met menselijk bloed van iemand anders?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Seksuele partner(s)"
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Heb je in het afgelopen jaar seks gehad met een partner die hiv-seropositief is?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Medicatie"
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Heb je in de afgelopen maand medicatie genomen of een vaccinatie gehad?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="60dp"
+				android:layout_marginBottom="10dp">
+
+				<ImageView
+					android:src="@drawable/ic_menu_camera"
+					android:layout_width="50dp"
+					android:layout_height="match_parent" />
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical"
+					android:layout_marginLeft="10dp"
+					android:gravity="center_vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="20dp"
+						android:text="Druggebruik"
+						android:textStyle="bold"
+						android:textSize="18sp" />
+
+					<TextView
+						android:text="Heb je ooit drugs gespoten of in de laatste 4 maanden gesnoven?"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center_vertical"
+						android:textSize="15sp" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+
+
+
+</android.support.constraint.ConstraintLayout>

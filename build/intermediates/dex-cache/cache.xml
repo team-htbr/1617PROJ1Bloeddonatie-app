@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\9a502aee3048f40d041791e169a031fdbeba4650\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_099f6be68dfaea89b7a3b2bd38961f0b54925f48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\8cbf58ac6ee129fe3d8b516a80f3b5977613a991\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_0494fd30b233870cacdb2bfbb0be223e30d6c011.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\e5542dac100ede1ee277d08dd1694c5bd14ab1cb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_62fbc28e6935f0180c82f502a7676e365f71e742.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\8d9f07cd0c6cf3919556d89f3c30c903c3eaa65a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b215e312bdc1ee7bfda31674eab5df8bad45c014">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_6af5725440bf20ac5126fc8895c2b55b4cb13db5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\fdc5576b0af22eebb79405c6930a3a23e9e8c0c2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_9bc420dd1d9340a664cd3038354247990db0f741.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\bjorn\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\support-annotations-24.0.0_7b4906e905ac2a36653c838863d6a67a99daf6b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\83a5fd8e364e3dde07d76ff4a948051c92741029\output\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0_2a88a04461fd7aefa6e9364f93950429919b90ea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\98ced510519850d2d37ffa303273e2b28518fddc\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_23e8718956437ea871bee734dda7babfb70bb648.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\af52eefce60dce00a80276855a400e5fabc2d888\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_e3a2b8773b65c5faa022d7d78422fd006da0b39d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\03ad0a618d3eb3cee4ee407a08f91cb3dab020af\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_82d2371c25c30cd21e716ea9c78ab59ee9b6cb6b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\c8c568cdde11c3947ecce71d1991590dbb209ec6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="888983f51cf34f57a93ff16832552f2f15937212">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_a4f28c1e757220a4463d01c025c1961da5faba8a.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android\.android\build-cache\d01d20fbd306dc20433b613e4405b5516696cc06\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ea050ecd2c7f661b4a1ad1f6e45f49e0f1afa83a\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\83a5fd8e364e3dde07d76ff4a948051c92741029\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_11f7ed6d3fae7bb804b7a504a129831a859ed390.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d47b8baca61595f4337b111c1f5aa9db8cfdb720">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_1fae4751ed5ff3826e0fd5ba54836ae2c981e3a8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android\.android\build-cache\54f5aa9c7cc1f971f0e01926bafbab354364644c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c7626a9aa507bbbdc16188bc9a9f9bf3370c1ddd">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b25ff49bb694977591686f7d2321e1033d8ce552\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\68518b4e6658333474c53248753a7a58e52603d1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_5b60f7fb707b4cfa9ae39060551ad4e99a5be00b.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b732f46cb4c7dcd264816f6b87f48c1bcea674f1\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\a87a980bb769f03a34202289c77b5d04d783d2c7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_d7fe35cfd690872e3567fb2543726fc8d42147a8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\6aa5ba7424b0a0ac59185c719af3d5296d8a4ddf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_10a37e5ccf0243d52d9a898ec9dbbb7ff3c28ea7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Android\.android\build-cache\b2884ece8e732dc4ee958aa6b09944305e706b37\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\bjorn\Desktop\1617PROJ1Bloeddonatie-app\app\build\intermediates\pre-dexed\debug\classes_044266458b5632e2d0abcdc223b981320ef40c43.jar" />
+    </item>
+
+</items>

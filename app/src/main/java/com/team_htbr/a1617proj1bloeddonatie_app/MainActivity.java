@@ -52,5 +52,13 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
+		Button btnMaps = (Button) findViewById(R.id.GoogleMap);
+		btnMaps.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, MapsActivity.class));
+			}
+		});
+
 	}
 }
