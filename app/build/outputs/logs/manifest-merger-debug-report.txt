@@ -115,6 +115,8 @@ MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Android\
 MERGED from [com.google.firebase:firebase-core:10.2.1] C:\Android\.android\build-cache\d9aa4c4184a876f0e4f1559e32bc44a81dee893c\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-analytics:10.2.1] C:\Android\.android\build-cache\fdc5576b0af22eebb79405c6930a3a23e9e8c0c2\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-analytics-impl:10.2.1] C:\Android\.android\build-cache\c8c568cdde11c3947ecce71d1991590dbb209ec6\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-database:10.2.1] C:\Android\.android\build-cache\5dd8f858d6b79e7acd9be796bee93ed1313e2184\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-database-connection:10.2.1] C:\Android\.android\build-cache\9031f66fc624ceeb259b485f6328da3dc32b4dba\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.firebase:firebase-messaging:10.2.1] C:\Android\.android\build-cache\8d9f07cd0c6cf3919556d89f3c30c903c3eaa65a\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-iid:10.2.1] C:\Android\.android\build-cache\03ad0a618d3eb3cee4ee407a08f91cb3dab020af\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-common:10.2.1] C:\Android\.android\build-cache\6aa5ba7424b0a0ac59185c719af3d5296d8a4ddf\output\AndroidManifest.xml:3:5-43

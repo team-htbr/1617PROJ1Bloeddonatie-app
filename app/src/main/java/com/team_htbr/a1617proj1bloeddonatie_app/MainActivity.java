@@ -8,12 +8,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
 	private static final String TAG = "MainActivity";
+	List<String> addressen = new ArrayList<String>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +67,23 @@ public class MainActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View view) {
 				startActivity(new Intent(MainActivity.this, MapsActivity.class));
+			}
+		});
+
+		DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+		DatabaseReference locations = mDatabase.child("locations_test");
+
+		locations.addValueEventListener(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+
+				}
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+
 			}
 		});
 

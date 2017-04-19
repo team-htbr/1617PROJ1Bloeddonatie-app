@@ -16,12 +16,12 @@
         "source": "C:\\Android\\.android\\build-cache\\b2884ece8e732dc4ee958aa6b09944305e706b37\\output\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
-        "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
-        "source": "C:\\Android\\.android\\build-cache\\a87a980bb769f03a34202289c77b5d04d783d2c7\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
-    },
-    {
         "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "C:\\Android\\.android\\build-cache\\b2884ece8e732dc4ee958aa6b09944305e706b37\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "C:\\Android\\.android\\build-cache\\a87a980bb769f03a34202289c77b5d04d783d2c7\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
     },
     {
         "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
@@ -52,16 +52,16 @@
         "source": "C:\\Android\\.android\\build-cache\\b2884ece8e732dc4ee958aa6b09944305e706b37\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
-        "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
-        "source": "C:\\Android\\.android\\build-cache\\a87a980bb769f03a34202289c77b5d04d783d2c7\\output\\res\\layout\\design_layout_tab_icon.xml"
+        "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Android\\.android\\build-cache\\b2884ece8e732dc4ee958aa6b09944305e706b37\\output\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
         "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Android\\.android\\build-cache\\b2884ece8e732dc4ee958aa6b09944305e706b37\\output\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
-        "source": "C:\\Android\\.android\\build-cache\\b2884ece8e732dc4ee958aa6b09944305e706b37\\output\\res\\layout\\abc_alert_dialog_material.xml"
+        "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "C:\\Android\\.android\\build-cache\\a87a980bb769f03a34202289c77b5d04d783d2c7\\output\\res\\layout\\design_layout_tab_icon.xml"
     },
     {
         "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
@@ -72,12 +72,12 @@
         "source": "C:\\Android\\.android\\build-cache\\b2884ece8e732dc4ee958aa6b09944305e706b37\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
-        "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "C:\\Android\\.android\\build-cache\\b2884ece8e732dc4ee958aa6b09944305e706b37\\output\\res\\layout\\abc_action_mode_bar.xml"
-    },
-    {
         "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
         "source": "C:\\Android\\.android\\build-cache\\b2884ece8e732dc4ee958aa6b09944305e706b37\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Android\\.android\\build-cache\\b2884ece8e732dc4ee958aa6b09944305e706b37\\output\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
         "merged": "C:\\Users\\bjorn\\Desktop\\1617PROJ1Bloeddonatie-app\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
