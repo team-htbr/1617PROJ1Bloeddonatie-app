@@ -11,11 +11,19 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
 	private GoogleMap mMap;
-	
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,5 +59,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		if ((ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
 			mMap.setMyLocationEnabled(true);
 		}
+
+		DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+		final DatabaseReference locations = mDatabase.child("locations_test");
+
+		locations.addValueEventListener(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				List<Object> locationsList = new ArrayList<Object>();
+
+				for (DataSnapshot locationSnapshot : dataSnapshot.getChildren()) {
+					locationsList.add(locationSnapshot.getValue());
+					Location nieuweLocatie = dataSnapshot.getValue(Location.class);
+					Marker(nieuweLocatie);
+				}
+
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+
+			}
+		});
+
+		Location test = new Location("Dit is de titel hiep hiep hoera", "willystraat", 40, "Marjet", 51.04155579823785, 3.7056541442871094 );
+		Marker(test);
+	}
+
+	public void Marker(Location testing) {
+		LatLng latlng = new LatLng(testing.getLAT(), testing.getLNG());
+		mMap.addMarker(new MarkerOptions()
+			.position(latlng)
+			.title(testing.getName())
+			.snippet(testing.getAddress())
+		);
+
 	}
 }
