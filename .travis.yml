@@ -10,16 +10,16 @@ notifications:
 android:
   components:
   - tools # will be built with latest version of Android SDK tools
-  - platform-tools 
+  - platform-tools
   - build-tools-25.0.2 # build tools version of my project
-  - android-23 # Android SDK version of my project
+  - android-25 # Android SDK version of my project
   # Additional components
   - extra-android-m2repository # design support library
   - extra-google-m2repository # Google Play Services
   licenses:
     - android-sdk-license-.+
     - '.+'
-script: 
+script:
  - ./gradlew clean build -Pbuild=dev # connectedCheck
 after_success:
  # codacy
