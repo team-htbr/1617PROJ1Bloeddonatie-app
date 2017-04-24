@@ -28,7 +28,7 @@
 				android:layout_marginBottom="10dp">
 
 				<ImageView
-					android:src="@drawable/ic_18"
+					android:src="@drawable/ic_18plus"
 					android:layout_width="50dp"
 					android:layout_height="match_parent" />
 
@@ -72,7 +72,7 @@
 				android:layout_marginBottom="10dp">
 
 				<ImageView
-					android:src="@drawable/ic_ziek"
+					android:src="@drawable/ic_sickness"
 					android:layout_width="50dp"
 					android:layout_height="match_parent" />
 
@@ -107,7 +107,7 @@
 				android:layout_marginBottom="10dp">
 
 				<ImageView
-					android:src="@drawable/ic_action_name"
+					android:src="@drawable/ic_physical"
 					android:layout_width="50dp"
 					android:layout_height="match_parent" />
 
@@ -143,7 +143,7 @@
 				android:layout_marginBottom="10dp">
 
 				<ImageView
-					android:src="@drawable/ic_bloed"
+					android:src="@drawable/ic_blood"
 					android:layout_width="50dp"
 					android:layout_height="match_parent"
 					/>
@@ -180,7 +180,7 @@
 				android:layout_marginBottom="10dp">
 
 				<ImageView
-					android:src="@drawable/ic_reizen"
+					android:src="@drawable/ic_travelling"
 					android:layout_width="50dp"
 					android:layout_height="match_parent" />
 
@@ -216,7 +216,7 @@
 				android:layout_marginBottom="10dp">
 
 				<ImageView
-					android:src="@drawable/ic_oper"
+					android:src="@drawable/ic_operation"
 					android:layout_width="50dp"
 					android:layout_height="match_parent" />
 
@@ -252,7 +252,7 @@
 				android:layout_marginBottom="10dp">
 
 				<ImageView
-					android:src="@drawable/ic_zwang"
+					android:src="@drawable/ic_pregnancy"
 					android:layout_width="50dp"
 					android:layout_height="match_parent" />
 
@@ -288,7 +288,7 @@
 				android:layout_marginBottom="10dp">
 
 				<ImageView
-					android:src="@drawable/ic_tat"
+					android:src="@drawable/ic_tattoo"
 					android:layout_width="50dp"
 					android:layout_height="match_parent" />
 
@@ -324,7 +324,7 @@
 				android:layout_marginBottom="10dp">
 
 				<ImageView
-					android:src="@drawable/ic_bloed"
+					android:src="@drawable/ic_blood"
 					android:layout_width="50dp"
 					android:layout_height="match_parent" />
 
@@ -360,7 +360,7 @@
 				android:layout_marginBottom="10dp">
 
 				<ImageView
-					android:src="@drawable/ic_seks"
+					android:src="@drawable/ic_sex"
 					android:layout_width="50dp"
 					android:layout_height="match_parent" />
 
@@ -397,7 +397,7 @@
 				android:layout_marginBottom="10dp">
 
 				<ImageView
-					android:src="@drawable/ic_medicatie"
+					android:src="@drawable/ic_medication"
 					android:layout_width="50dp"
 					android:layout_height="match_parent" />
 
