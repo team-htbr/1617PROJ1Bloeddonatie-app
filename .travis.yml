@@ -20,8 +20,7 @@ android:
     - android-sdk-license-.+
     - '.+'
 script:
- - ./gradlew assembleDebug -Pbuild=dev --info
-# - ./gradlew clean build -Pbuild=dev # connectedCheck
+ - ./gradlew clean build -Pbuild=dev --info# connectedCheck
 after_success:
  # codacy
 
