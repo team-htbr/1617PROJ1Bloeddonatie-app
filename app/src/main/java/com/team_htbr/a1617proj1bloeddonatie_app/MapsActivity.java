@@ -68,7 +68,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 			public void onDataChange(DataSnapshot dataSnapshot) {
 
 				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-					System.out.println(snapshot.child("location/l/0").getValue().toString());
 					Location addLocation = new Location((double) snapshot.child("location/l/0").getValue(), (double) snapshot.child("location/l/1").getValue(), snapshot.child("title").getValue().toString());
 					Marker(addLocation);
 				}
