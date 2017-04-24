@@ -4,6 +4,7 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -52,26 +53,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		mMap = googleMap;
 
 		// Add a marker in Sydney and move the camera
-		LatLng sydney = new LatLng(51, 3);
-		mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 8));
+		LatLng belgië = new LatLng(51, 3);
+		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(belgië, 8));
 
 		if ((ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
 			mMap.setMyLocationEnabled(true);
 		}
 
-		DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-		final DatabaseReference locations = mDatabase.child("locations_test");
+		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
+		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations_test");
 
-		locations.addValueEventListener(new ValueEventListener() {
+		locationsDataBase.addValueEventListener(new ValueEventListener() {
 			@Override
 			public void onDataChange(DataSnapshot dataSnapshot) {
-				List<Object> locationsList = new ArrayList<Object>();
 
-				for (DataSnapshot locationSnapshot : dataSnapshot.getChildren()) {
-					locationsList.add(locationSnapshot.getValue());
-					Location nieuweLocatie = dataSnapshot.getValue(Location.class);
-					Marker(nieuweLocatie);
+				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+					System.out.println(snapshot.child("location/l/0").getValue().toString());
+					Location addLocation = new Location((double) snapshot.child("location/l/0").getValue(), (double) snapshot.child("location/l/1").getValue(), snapshot.child("title").getValue().toString());
+					Marker(addLocation);
 				}
 
 			}
@@ -82,8 +81,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 			}
 		});
 
-		Location test = new Location("Dit is de titel hiep hiep hoera", "willystraat", 40, "Marjet", 51.04155579823785, 3.7056541442871094 );
-		Marker(test);
 	}
 
 	public void Marker(Location testing) {

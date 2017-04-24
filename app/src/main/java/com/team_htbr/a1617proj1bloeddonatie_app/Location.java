@@ -58,6 +58,11 @@ public class Location {
 	}
 
 	public String getAddress() {
-		return streetName + " " + streetNumber + ",  " + city;
+		if (streetNumber != 0 && streetName != null && city != null) {
+			return streetName + " " + streetNumber + ",  " + city;
+		}
+		else {
+			return "no info available";
+		}
 	}
 }
