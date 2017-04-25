@@ -53,8 +53,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		mMap = googleMap;
 
 		// Add a marker in Sydney and move the camera
-		LatLng belgië = new LatLng(51, 3);
-		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(belgië, 8));
+		LatLng brussel = new LatLng(50.871157, 4.331759);
+		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(brussel, 8));
 
 		if ((ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
 			mMap.setMyLocationEnabled(true);
@@ -68,26 +68,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 			public void onDataChange(DataSnapshot dataSnapshot) {
 
 				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-					Location addLocation = new Location((double) snapshot.child("location/l/0").getValue(), (double) snapshot.child("location/l/1").getValue(), snapshot.child("title").getValue().toString());
-					Marker(addLocation);
+					Location newLocation = new Location(snapshot.getKey(), snapshot.child("title").getValue().toString(), snapshot.child("address").getValue().toString(), false ,(double) snapshot.child("location/l/0").getValue(), (double) snapshot.child("location/l/1").getValue());
+					Marker(newLocation);
 				}
-
 			}
 
 			@Override
 			public void onCancelled(DatabaseError databaseError) {
-
+				return;
 			}
 		});
 
 	}
 
-	public void Marker(Location testing) {
-		LatLng latlng = new LatLng(testing.getLAT(), testing.getLNG());
+	public void Marker(Location newMarker) {
 		mMap.addMarker(new MarkerOptions()
-			.position(latlng)
-			.title(testing.getName())
-			.snippet(testing.getAddress())
+			.position(newMarker.getCoordinates())
+			.title(newMarker.getTitle())
+			.snippet(newMarker.getAddress())
 		);
 
 	}
