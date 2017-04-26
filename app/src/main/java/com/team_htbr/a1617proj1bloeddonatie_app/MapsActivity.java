@@ -4,22 +4,20 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -54,7 +52,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 		// Add a marker in Sydney and move the camera
 		LatLng brussel = new LatLng(50.871157, 4.331759);
-		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(brussel, 8));
+		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(brussel, 9));
 
 		if ((ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
 			mMap.setMyLocationEnabled(true);
@@ -68,8 +66,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 			public void onDataChange(DataSnapshot dataSnapshot) {
 
 				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-					Location newLocation = new Location(snapshot.getKey(), snapshot.child("title").getValue().toString(), snapshot.child("address").getValue().toString(), false ,(double) snapshot.child("location/l/0").getValue(), (double) snapshot.child("location/l/1").getValue());
-					Marker(newLocation);
+					Location newLocation = snapshot.getValue(Location.class);
+					addNewMarker(newLocation);
 				}
 			}
 
@@ -79,14 +77,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 			}
 		});
 
+		mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+			@Override
+			public boolean onMarkerClick(Marker marker) {
+				mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 10));
+				return false;
+			}
+		});
+
+		mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+			@Override
+			public View getInfoWindow(Marker marker) {
+				return null;
+			}
+
+			@Override
+			public View getInfoContents(Marker marker) {
+				return null;
+			}
+		});
 	}
 
-	public void Marker(Location newMarker) {
+	public void addNewMarker(Location newMarker) {
 		mMap.addMarker(new MarkerOptions()
 			.position(newMarker.getCoordinates())
-			.title(newMarker.getTitle())
+			.title(newMarker.getName())
 			.snippet(newMarker.getAddress())
 		);
-
 	}
+
+
+
 }
