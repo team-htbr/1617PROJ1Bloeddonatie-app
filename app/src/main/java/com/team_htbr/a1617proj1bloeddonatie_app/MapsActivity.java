@@ -5,6 +5,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -93,7 +94,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 			@Override
 			public View getInfoContents(Marker marker) {
-				return null;
+				View v = getLayoutInflater().inflate(R.layout.info_window, null);
+
+				TextView tvTitle= (TextView) v.findViewById(R.id.tv_title);
+				TextView tvAddress= (TextView) v.findViewById(R.id.tv_address);
+				TextView tvExtra= (TextView) v.findViewById(R.id.tv_extra);
+
+				tvTitle.setText(marker.getTitle());
+				tvAddress.setText(marker.getSnippet());
+
+				return v;
 			}
 		});
 	}
