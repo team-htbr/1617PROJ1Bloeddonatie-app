@@ -17,6 +17,17 @@ public class Location {
 	private double lat;
 	private double lng;
 
+	public Location(String id, String name, String street, String streetNumber, String city, Boolean isMobile, double lat, double lng) {
+		this.id = id;
+		this.name = name;
+		this.street = street;
+		this.streetNumber = streetNumber;
+		this.city = city;
+		this.isMobile = isMobile;
+		this.lat = lat;
+		this.lng = lng;
+	}
+
 	public Location() {
 
 	}
