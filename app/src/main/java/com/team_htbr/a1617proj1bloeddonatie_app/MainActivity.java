@@ -9,11 +9,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
 
 	private static final String TAG = "MainActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,5 +52,12 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
+		Button btnMaps = (Button) findViewById(R.id.GoogleMap);
+		btnMaps.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, MapsActivity.class));
+			}
+		});
 	}
 }
