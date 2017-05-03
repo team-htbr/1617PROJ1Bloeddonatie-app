@@ -24,7 +24,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 	private GoogleMap mMap;
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,7 +35,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 	}
-
 
 	/**
 	 * Manipulates the map once available.
@@ -51,18 +49,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 	public void onMapReady(GoogleMap googleMap) {
 		mMap = googleMap;
 
-		// Add a marker in Sydney and move the camera
+		// Add a marker in Brussel and move the camera
 		LatLng brussel = new LatLng(50.871157, 4.331759);
 		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(brussel, 9));
 
+		//enable search my location
 		if ((ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
 			mMap.setMyLocationEnabled(true);
 		}
 
+		//get database from firebase
 		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
-		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations_test");
+		DatabaseReference markersDataBase = fireBaseDataBase.child("locations_test");
 
-		locationsDataBase.addValueEventListener(new ValueEventListener() {
+		//add new markers when added in database
+		markersDataBase.addValueEventListener(new ValueEventListener() {
 			@Override
 			public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -78,6 +79,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 			}
 		});
 
+		//move camera to marker on click
 		mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
 			@Override
 			public boolean onMarkerClick(Marker marker) {
@@ -86,6 +88,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 			}
 		});
 
+		//creating custom info window
 		mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
 			@Override
 			public View getInfoWindow(Marker marker) {
@@ -98,7 +101,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 				TextView tvTitle= (TextView) v.findViewById(R.id.tv_title);
 				TextView tvAddress= (TextView) v.findViewById(R.id.tv_address);
-				TextView tvExtra= (TextView) v.findViewById(R.id.tv_extra);
 
 				tvTitle.setText(marker.getTitle());
 				tvAddress.setText(marker.getSnippet());
@@ -106,8 +108,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 				return v;
 			}
 		});
+
 	}
 
+	//add new marker to map
 	public void addNewMarker(Location newMarker) {
 		mMap.addMarker(new MarkerOptions()
 			.position(newMarker.getCoordinates())
@@ -115,7 +119,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 			.snippet(newMarker.getAddress())
 		);
 	}
-
-
-
 }
