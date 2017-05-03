@@ -46,6 +46,8 @@ dependencies {
 	compile 'com.google.firebase:firebase-database:10.2.1'
 	// Google maps
     compile 'com.google.android.gms:play-services-maps:10.2.1'
+	//Geofire
+	compile 'com.firebase:geofire-android:2.1.1'
 }
 
 // Customize build command for Travis CI
