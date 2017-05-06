@@ -73,31 +73,31 @@ public class MainActivity extends AppCompatActivity {
 		DatabaseReference ref = FirebaseDatabase.getInstance().getReference("bloeddonatie-bd78c").child("locations_geo_test");
 
 		GeoFire geoFire = new GeoFire(ref);
-		GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(userLocatie.latitude, userLocatie.longitude), 10);
+		GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(userLocatie.latitude, userLocatie.longitude), 100);
 		geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
 			@Override
 			public void onKeyEntered(String s, GeoLocation geoLocation) {
-				Toast.makeText(MainActivity.this, "jippie", Toast.LENGTH_SHORT).show();
+				Toast.makeText(MainActivity.this, "onKeyEntered", Toast.LENGTH_SHORT).show();
 			}
 
 			@Override
 			public void onKeyExited(String s) {
-
+				Toast.makeText(MainActivity.this, "onKeyExited", Toast.LENGTH_SHORT).show();
 			}
 
 			@Override
 			public void onKeyMoved(String s, GeoLocation geoLocation) {
-
+				Toast.makeText(MainActivity.this, "onKeyMoved", Toast.LENGTH_SHORT).show();
 			}
 
 			@Override
 			public void onGeoQueryReady() {
-
+				Toast.makeText(MainActivity.this, "onGeoQueryReady", Toast.LENGTH_SHORT).show();
 			}
 
 			@Override
 			public void onGeoQueryError(DatabaseError databaseError) {
-
+				Toast.makeText(MainActivity.this, "onGeoQueryError", Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
