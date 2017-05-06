@@ -8,6 +8,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.firebase.geofire.GeoFire;
+import com.firebase.geofire.GeoLocation;
+import com.firebase.geofire.GeoQuery;
+import com.firebase.geofire.GeoQueryEventListener;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,6 +65,39 @@ public class MainActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View view) {
 				startActivity(new Intent(MainActivity.this, MapsActivity.class));
+			}
+		});
+
+		LatLng userLocatie = new LatLng(51.046414, 3.714425);
+
+		DatabaseReference ref = FirebaseDatabase.getInstance().getReference("bloeddonatie-bd78c").child("locations_geo_test");
+
+		GeoFire geoFire = new GeoFire(ref);
+		GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(userLocatie.latitude, userLocatie.longitude), 10);
+		geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
+			@Override
+			public void onKeyEntered(String s, GeoLocation geoLocation) {
+				Toast.makeText(MainActivity.this, "jippie", Toast.LENGTH_SHORT).show();
+			}
+
+			@Override
+			public void onKeyExited(String s) {
+
+			}
+
+			@Override
+			public void onKeyMoved(String s, GeoLocation geoLocation) {
+
+			}
+
+			@Override
+			public void onGeoQueryReady() {
+
+			}
+
+			@Override
+			public void onGeoQueryError(DatabaseError databaseError) {
+
 			}
 		});
 	}

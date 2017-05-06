@@ -1,5 +1,7 @@
 package com.team_htbr.a1617proj1bloeddonatie_app;
 
+import android.widget.Toast;
+
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
@@ -24,13 +26,11 @@ public class LocationNotification {
 
 		DatabaseReference ref = FirebaseDatabase.getInstance().getReference("bloeddonatie-bd78c/locations_geo_test");
 		GeoFire geoFire = new GeoFire(ref);
-
-		GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(userLocatie.latitude, userLocatie.longitude), 2);
-
+		GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(userLocatie.latitude, userLocatie.longitude), 10);
 		geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
 			@Override
 			public void onKeyEntered(String s, GeoLocation geoLocation) {
-				
+				System.out.println("jippie");
 			}
 
 			@Override
