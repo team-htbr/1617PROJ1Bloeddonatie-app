@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
 		LatLng userLocatie = new LatLng(51.046414, 3.714425);
 
-		DatabaseReference ref = FirebaseDatabase.getInstance().getReference("bloeddonatie-bd78c").child("locations_geo_test");
+		DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("locations_geo_test");
 
 		GeoFire geoFire = new GeoFire(ref);
 		GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(userLocatie.latitude, userLocatie.longitude), 100);
