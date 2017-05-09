@@ -73,11 +73,11 @@ public class MainActivity extends AppCompatActivity {
 		DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("locations_geo_test");
 
 		GeoFire geoFire = new GeoFire(ref);
-		GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(userLocatie.latitude, userLocatie.longitude), 100);
+		GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(userLocatie.latitude, userLocatie.longitude), 1);
 		geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
 			@Override
 			public void onKeyEntered(String s, GeoLocation geoLocation) {
-				Toast.makeText(MainActivity.this, "onKeyEntered", Toast.LENGTH_SHORT).show();
+				Toast.makeText(MainActivity.this, Double.toString(geoLocation.latitude), Toast.LENGTH_SHORT).show();
 			}
 
 			@Override

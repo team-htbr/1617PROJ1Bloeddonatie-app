@@ -83,7 +83,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
 			@Override
 			public boolean onMarkerClick(Marker marker) {
-				mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 10));
+				mMap.moveCamera(CameraUpdateFactory.newLatLng(marker.getPosition()));
 				return false;
 			}
 		});
