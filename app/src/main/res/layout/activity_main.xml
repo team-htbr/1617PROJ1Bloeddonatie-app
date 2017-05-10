@@ -7,24 +7,6 @@
     tools:context="com.team_htbr.a1617proj1bloeddonatie_app.MainActivity">
 
 	<Button
-		android:id="@+id/button_show_token"
-		android:layout_width="0dp"
-		android:layout_height="wrap_content"
-		android:text="Show token"
-		tools:layout_constraintRight_creator="1"
-		tools:layout_constraintBottom_creator="1"
-		android:layout_marginStart="21dp"
-		app:layout_constraintBottom_toBottomOf="parent"
-		android:layout_marginEnd="21dp"
-		app:layout_constraintRight_toRightOf="parent"
-		tools:layout_constraintLeft_creator="1"
-		android:layout_marginBottom="42dp"
-		app:layout_constraintLeft_toLeftOf="parent"
-		android:layout_marginLeft="21dp"
-		android:layout_marginRight="21dp"
-		app:layout_constraintHorizontal_bias="0.0" />
-
-	<Button
 		android:id="@+id/Bloodtype"
 		android:layout_width="0dp"
 		android:layout_height="51dp"
