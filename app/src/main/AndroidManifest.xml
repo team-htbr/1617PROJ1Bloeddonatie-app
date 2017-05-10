@@ -38,8 +38,19 @@
 
 		<activity
 			android:name=".SubscribeBloodtypeActivity"
-			android:label="@string/app_name" />
-		<activity android:name=".DonorTestActivity" />
+			android:label="@string/app_name"
+			android:parentActivityName=".MainActivity"/>
+		<meta-data
+			android:name="android.support.PARENT_ACTIVITY"
+			android:value=".MainActivity" />
+
+
+		<activity
+			android:name=".DonorTestActivity"
+			android:parentActivityName=".MainActivity"/>
+		<meta-data
+			android:name="android.support.PARENT_ACTIVITY"
+			android:value=".MainActivity" />
 		<!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -54,7 +65,11 @@
 
 		<activity
 			android:name=".MapsActivity"
-			android:label="@string/title_activity_maps"></activity>
+			android:label="@string/title_activity_maps"
+			android:parentActivityName=".MainActivity"/>
+		<meta-data
+			android:name="android.support.PARENT_ACTIVITY"
+			android:value=".MainActivity" />
 	</application>
 
 </manifest>
