@@ -11,10 +11,14 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 public class SubscribeBloodtypeActivity extends AppCompatActivity {
 
-	private Button TypeA;
-	private Button TypeB;
-	private Button TypeAB;
-	private Button TypeO;
+	private Button TypeAp;
+	private Button TypeBp;
+	private Button TypeABp;
+	private Button TypeOp;
+	private Button TypeAn;
+	private Button TypeBn;
+	private Button TypeABn;
+	private Button TypeOn;
 
 	private String bloodType;
 
@@ -26,50 +30,90 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 		setTitle("Kies bloed type");
 
 		//get buttons
-		TypeA = (Button)findViewById(R.id.buttonA);
-		TypeB = (Button)findViewById(R.id.buttonB);
-		TypeAB = (Button)findViewById(R.id.buttonAB);
-		TypeO = (Button)findViewById(R.id.buttonO);
+		TypeAp = (Button)findViewById(R.id.buttonAp);
+		TypeBp = (Button)findViewById(R.id.buttonBp);
+		TypeABp = (Button)findViewById(R.id.buttonABp);
+		TypeOp = (Button)findViewById(R.id.buttonOp);
+		TypeAn = (Button)findViewById(R.id.buttonAn);
+		TypeBn = (Button)findViewById(R.id.buttonBn);
+		TypeABn = (Button)findViewById(R.id.buttonABn);
+		TypeOn = (Button)findViewById(R.id.buttonOn);
 
 		getInfo();
 
 		switch (bloodType) {
-			case "A": TypeA.setBackgroundColor(getResources().getColor(R.color.button_selected));
+			case "Ap": TypeAp.setBackgroundColor(getResources().getColor(R.color.button_selected));
 				break;
-			case "B": TypeB.setBackgroundColor(getResources().getColor(R.color.button_selected));
+			case "Bp": TypeBp.setBackgroundColor(getResources().getColor(R.color.button_selected));
 				break;
-			case "AB": TypeAB.setBackgroundColor(getResources().getColor(R.color.button_selected));
+			case "ABp": TypeABp.setBackgroundColor(getResources().getColor(R.color.button_selected));
 				break;
-			case "O": TypeO.setBackgroundColor(getResources().getColor(R.color.button_selected));
+			case "Op": TypeOp.setBackgroundColor(getResources().getColor(R.color.button_selected));
+				break;
+			case "An": TypeAn.setBackgroundColor(getResources().getColor(R.color.button_selected));
+				break;
+			case "Bn": TypeBn.setBackgroundColor(getResources().getColor(R.color.button_selected));
+				break;
+			case "ABn": TypeABn.setBackgroundColor(getResources().getColor(R.color.button_selected));
+				break;
+			case "On": TypeOn.setBackgroundColor(getResources().getColor(R.color.button_selected));
 				break;
 			default: break;
 		}
 
-		TypeA.setOnClickListener(new View.OnClickListener() {
+		TypeAp.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				handlings("A", v);
+				handlings("Ap", v);
 			}
 		});
 
-		TypeB.setOnClickListener(new View.OnClickListener() {
+		TypeBp.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				handlings("B", v);
+				handlings("Bp", v);
 			}
 		});
 
-		TypeAB.setOnClickListener(new View.OnClickListener() {
+		TypeABp.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				handlings("AB", v);
+				handlings("ABp", v);
 			}
 		});
 
-		TypeO.setOnClickListener(new View.OnClickListener() {
+		TypeOp.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				handlings("O", v);
+				handlings("Op", v);
+			}
+		});
+
+		TypeAn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				handlings("An", v);
+			}
+		});
+
+		TypeBn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				handlings("Bn", v);
+			}
+		});
+
+		TypeABn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				handlings("ABn", v);
+			}
+		});
+
+		TypeOn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				handlings("On", v);
 			}
 		});
 
@@ -89,17 +133,25 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 	}
 
 	private void clearButtons() {
-		TypeA.setBackgroundColor(getResources().getColor(R.color.button_default));
-		TypeB.setBackgroundColor(getResources().getColor(R.color.button_default));
-		TypeAB.setBackgroundColor(getResources().getColor(R.color.button_default));
-		TypeO.setBackgroundColor(getResources().getColor(R.color.button_default));
+		TypeAp.setBackgroundColor(getResources().getColor(R.color.button_default));
+		TypeBp.setBackgroundColor(getResources().getColor(R.color.button_default));
+		TypeABp.setBackgroundColor(getResources().getColor(R.color.button_default));
+		TypeOp.setBackgroundColor(getResources().getColor(R.color.button_default));
+		TypeAn.setBackgroundColor(getResources().getColor(R.color.button_default));
+		TypeBn.setBackgroundColor(getResources().getColor(R.color.button_default));
+		TypeABn.setBackgroundColor(getResources().getColor(R.color.button_default));
+		TypeOn.setBackgroundColor(getResources().getColor(R.color.button_default));
 	}
 
 	private void unsubscribe() {
-		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-A");
-		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-B");
-		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-AB");
-		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-O");
+		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-Ap");
+		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-Bp");
+		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-ABp");
+		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-Op");
+		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-An");
+		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-Bn");
+		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-ABn");
+		FirebaseMessaging.getInstance().unsubscribeFromTopic("blood-On");
 	}
 
 	private void saveInfo(String type) {
