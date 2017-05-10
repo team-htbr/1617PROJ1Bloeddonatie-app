@@ -1,57 +1,60 @@
 package com.team_htbr.a1617proj1bloeddonatie_app;
 
-import android.widget.Toast;
-
-import com.firebase.geofire.GeoFire;
-import com.firebase.geofire.GeoLocation;
-import com.firebase.geofire.GeoQuery;
-import com.firebase.geofire.GeoQueryEventListener;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.HashMap;
+import android.app.Service;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.*;
+import android.location.Location;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 
 /**
- * Created by bjorn on 3-5-2017.
+ * Created by bjorn on 9-5-2017.
  */
 
-public class LocationNotification {
+public class LocationNotification extends Service implements LocationListener {
 
-	public void getLocations() {
-		LatLng userLocatie = new LatLng(51.046414, 3.714425);
+	public void checkLocations() {
+		LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+			// TODO: Consider calling
+			//    ActivityCompat#requestPermissions
+			// here to request the missing permissions, and then overriding
+			//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+			//                                          int[] grantResults)
+			// to handle the case where the user grants the permission. See the documentation
+			// for ActivityCompat#requestPermissions for more details.
+			locationManager.requestLocationUpdates("gps", 5000, 0, this);
+		}
 
-		DatabaseReference ref = FirebaseDatabase.getInstance().getReference("bloeddonatie-bd78c/locations_geo_test");
-		GeoFire geoFire = new GeoFire(ref);
-		GeoQuery geoQuery = geoFire.queryAtLocation(new GeoLocation(userLocatie.latitude, userLocatie.longitude), 10);
-		geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
-			@Override
-			public void onKeyEntered(String s, GeoLocation geoLocation) {
-				System.out.println("jippie");
-			}
-
-			@Override
-			public void onKeyExited(String s) {
-
-			}
-
-			@Override
-			public void onKeyMoved(String s, GeoLocation geoLocation) {
-
-			}
-
-			@Override
-			public void onGeoQueryReady() {
-
-			}
-
-			@Override
-			public void onGeoQueryError(DatabaseError databaseError) {
-
-			}
-		});
 	}
+
+	@Override
+	public void onLocationChanged(Location location) {
+
+	}
+
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+
+	}
+
+	@Override
+	public void onProviderEnabled(String provider) {
+
+	}
+
+	@Override
+	public void onProviderDisabled(String provider) {
+
+	}
+
+	@Nullable
+	@Override
+	public IBinder onBind(Intent intent) {
+		return null;
+	}
+
 }
