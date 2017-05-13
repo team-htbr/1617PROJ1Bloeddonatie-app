@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -15,15 +16,19 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
 	private GoogleMap mMap;
+	HashMap<String, Marker> markers;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +54,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
 		mMap = googleMap;
+		markers = new HashMap<String, Marker>();
 
 		// Add a marker in Brussel and move the camera
-		LatLng brussel = new LatLng(50.871157, 4.331759);
-		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(brussel, 9));
+		LatLng gent = new LatLng(51.045810, 3.714156);
+		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gent, 9));
 
 		//enable search my location
 		if ((ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
@@ -63,20 +69,45 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
 		DatabaseReference markersDataBase = fireBaseDataBase.child("locations_test");
 
-		//add new markers when added in database
-		markersDataBase.addValueEventListener(new ValueEventListener() {
+		//handels changes in the database
+		markersDataBase.addChildEventListener(new ChildEventListener() {
 			@Override
-			public void onDataChange(DataSnapshot dataSnapshot) {
+			//adds new markers
+			public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+				Location addedLocation = dataSnapshot.getValue(Location.class);
+				Marker addedMarker = addMarker(addedLocation);
+				markers.put(dataSnapshot.getKey(), addedMarker);
+			}
 
-				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-					Location newLocation = snapshot.getValue(Location.class);
-					addNewMarker(newLocation);
+			@Override
+			//replaces markers who have changed in the database
+			public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+				if (markers.containsKey(dataSnapshot.getKey())) {
+					Marker oldMarker = markers.get(dataSnapshot.getKey());
+					oldMarker.remove();
+				}
+				Location changedLocation = dataSnapshot.getValue(Location.class);
+				Marker changedMarker = addMarker(changedLocation);
+				markers.put(dataSnapshot.getKey(), changedMarker);
+			}
+
+			@Override
+			//remove markers that have been removed in database
+			public void onChildRemoved(DataSnapshot dataSnapshot) {
+				if (markers.containsKey(dataSnapshot.getKey())) {
+					Marker deletedMarker = markers.get(dataSnapshot.getKey());
+					deletedMarker.remove();
 				}
 			}
 
 			@Override
+			public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+			}
+
+			@Override
 			public void onCancelled(DatabaseError databaseError) {
-				return;
+				Toast.makeText(MapsActivity.this, "database failed", Toast.LENGTH_SHORT);
 			}
 		});
 
@@ -100,8 +131,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 			public View getInfoContents(Marker marker) {
 				View v = getLayoutInflater().inflate(R.layout.info_window, null);
 
-				TextView tvTitle= (TextView) v.findViewById(R.id.tv_title);
-				TextView tvAddress= (TextView) v.findViewById(R.id.tv_address);
+				TextView tvTitle = (TextView) v.findViewById(R.id.tv_title);
+				TextView tvAddress = (TextView) v.findViewById(R.id.tv_address);
 
 				tvTitle.setText(marker.getTitle());
 				tvAddress.setText(marker.getSnippet());
@@ -109,15 +140,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 				return v;
 			}
 		});
-
 	}
 
-	//add new marker to map
-	public void addNewMarker(Location newMarker) {
-		mMap.addMarker(new MarkerOptions()
-			.position(newMarker.getCoordinates())
-			.title(newMarker.getName())
-			.snippet(newMarker.getAddress())
-		);
+	private Marker addMarker(Location location) {
+		Marker marker = mMap.addMarker(location.getMarker());
+		return marker;
 	}
 }
