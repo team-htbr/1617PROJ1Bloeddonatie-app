@@ -49,7 +49,6 @@ public class MainActivity extends FragmentActivity  {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		setTitle("Rode Kruis");
-
 		geofences = new ArrayList<>();
 		locationsList = new HashMap<>();
 
