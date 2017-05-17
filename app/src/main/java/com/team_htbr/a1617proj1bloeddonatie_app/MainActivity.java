@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,11 +28,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends FragmentActivity  {
 
@@ -41,10 +40,10 @@ public class MainActivity extends FragmentActivity  {
 	public static final int REACH = 1000;
 	public static Location currentLocation;
 
-	GoogleApiClient googleApiClient = null;
-	PendingIntent pendingIntent = null;
-	ArrayList<com.team_htbr.a1617proj1bloeddonatie_app.Location> locationsList;
-	ArrayList<Geofence> geofences;
+	private GoogleApiClient googleApiClient = null;
+	private PendingIntent pendingIntent = null;
+	private HashMap<String, com.team_htbr.a1617proj1bloeddonatie_app.Location> locationsList;
+	private ArrayList<Geofence> geofences;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +52,7 @@ public class MainActivity extends FragmentActivity  {
 		setTitle("Rode Kruis");
 
 		geofences = new ArrayList<>();
-		locationsList = new ArrayList<>();
+		locationsList = new HashMap<>();
 
 		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
 		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations_test");
@@ -62,7 +61,7 @@ public class MainActivity extends FragmentActivity  {
 			@Override
 			public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 				googleApiClient.connect();
-				locationsList.add(dataSnapshot.getValue(com.team_htbr.a1617proj1bloeddonatie_app.Location.class));
+				locationsList.put(s, dataSnapshot.getValue(com.team_htbr.a1617proj1bloeddonatie_app.Location.class));
 				startLocationMoitoring();
 				startGeofenceMonitoring();
 			}
@@ -122,7 +121,11 @@ public class MainActivity extends FragmentActivity  {
 				startActivity(new Intent(MainActivity.this, MapsActivity.class));
 			}
 		});
+		connectToGoogleApi();
 
+	}
+
+	private void connectToGoogleApi() {
 		if (googleApiClient == null) {
 			googleApiClient = new GoogleApiClient.Builder(this)
 				.addConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
@@ -145,12 +148,6 @@ public class MainActivity extends FragmentActivity  {
 				.addApi(LocationServices.API)
 				.build();
 		}
-
-
-	}
-
-	public void connectToGoogleApi() {
-
 	}
 
 	protected void onStart() {
@@ -183,10 +180,10 @@ public class MainActivity extends FragmentActivity  {
 
 	public void startGeofenceMonitoring() {
 
-		for (com.team_htbr.a1617proj1bloeddonatie_app.Location l : locationsList) {
+		for (Map.Entry<String, com.team_htbr.a1617proj1bloeddonatie_app.Location> entry : locationsList.entrySet()) {
 			geofences.add(new Geofence.Builder()
-				.setRequestId(l.getName())
-				.setCircularRegion(l.getLat(), l.getLng(), 20000)
+				.setRequestId(entry.getValue().getName())
+				.setCircularRegion(entry.getValue().getLat(), entry.getValue().getLng(), 20000)
 				.setExpirationDuration(Geofence.NEVER_EXPIRE)
 				.setNotificationResponsiveness(1000)
 				.setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)

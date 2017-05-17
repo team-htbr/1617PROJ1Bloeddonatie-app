@@ -4,8 +4,8 @@ import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,20 +15,19 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
 	private GoogleMap mMap;
-	HashMap<String, Marker> markers;
+	private HashMap<String, Marker> markers;
+	public static final String TAG = "MapsActivity";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +52,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 	 */
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
+
 		mMap = googleMap;
 		markers = new HashMap<String, Marker>();
 
@@ -108,7 +108,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 			@Override
 			public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
+				Log.d(TAG, "codency fix");
 			}
 
 			@Override

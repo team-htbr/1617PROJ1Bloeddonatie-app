@@ -40,7 +40,7 @@ public class GeofenceService extends IntentService {
 
 			if (transition == Geofence.GEOFENCE_TRANSITION_ENTER) {
 				Log.d(TAG, "entering geofence - " + geofence.getRequestId());
-				sendNotification("je bent in de buurt van donatiecentrum " + geofence.getRequestId() + " klik hier voor address ");
+				sendNotification("je bent in de buurt van donatiecentrum " + requestId + " klik hier voor address ");
 			}
 		}
 	}
