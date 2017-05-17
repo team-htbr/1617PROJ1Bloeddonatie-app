@@ -21,8 +21,10 @@ public class GeofenceService extends IntentService {
 
 	public static final String TAG = "GeofenceService";
 
+
 	public GeofenceService() {
 		super(TAG);
+
 	}
 
 	@Override
@@ -37,8 +39,8 @@ public class GeofenceService extends IntentService {
 			String requestId = geofence.getRequestId();
 
 			if (transition == Geofence.GEOFENCE_TRANSITION_ENTER) {
-				Log.d(TAG, "entering geofence - " + requestId);
-				sendNotification("enterd a geofence");
+				Log.d(TAG, "entering geofence - " + geofence.getRequestId());
+				sendNotification("je bent in de buurt van donatiecentrum " + geofence.getRequestId() + " klik hier voor address ");
 			}
 		}
 	}

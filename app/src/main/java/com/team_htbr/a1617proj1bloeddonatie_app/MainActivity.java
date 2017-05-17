@@ -23,6 +23,8 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.*;
 import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,13 +35,15 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends FragmentActivity implements ResultCallback<Status> {
+public class MainActivity extends FragmentActivity  {
 
 	public static final String TAG = "MainActivity";
 	public static final int REACH = 1000;
+	public static Location currentLocation;
 
 	GoogleApiClient googleApiClient = null;
 	PendingIntent pendingIntent = null;
+	ArrayList<com.team_htbr.a1617proj1bloeddonatie_app.Location> locationsList;
 	ArrayList<Geofence> geofences;
 
 	@Override
@@ -49,6 +53,40 @@ public class MainActivity extends FragmentActivity implements ResultCallback<Sta
 		setTitle("Rode Kruis");
 
 		geofences = new ArrayList<>();
+		locationsList = new ArrayList<>();
+
+		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
+		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations_test");
+
+		locationsDataBase.addChildEventListener(new ChildEventListener() {
+			@Override
+			public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+				googleApiClient.connect();
+				locationsList.add(dataSnapshot.getValue(com.team_htbr.a1617proj1bloeddonatie_app.Location.class));
+				startLocationMoitoring();
+				startGeofenceMonitoring();
+			}
+
+			@Override
+			public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+				Log.d(TAG, "bla bla");
+			}
+
+			@Override
+			public void onChildRemoved(DataSnapshot dataSnapshot) {
+				Log.d(TAG, "bla bla");
+			}
+
+			@Override
+			public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+				Log.d(TAG, "bla bla");
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+				Log.d(TAG, "bla bla");
+			}
+		});
 
 		Button btnShowToken = (Button) findViewById(R.id.button_show_token);
 		btnShowToken.setOnClickListener(new View.OnClickListener() {
@@ -108,92 +146,101 @@ public class MainActivity extends FragmentActivity implements ResultCallback<Sta
 				.build();
 		}
 
-		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
-		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations_test");
 
-		locationsDataBase.addValueEventListener(new ValueEventListener() {
-			@Override
-			public void onDataChange(DataSnapshot dataSnapshot) {
-				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-					geofences.add(new Geofence.Builder()
-						.setRequestId(snapshot.child("name").getValue().toString())
-						.setCircularRegion(
-							(double) snapshot.child("lat").getValue(),
-							(double) snapshot.child("lng").getValue(),
-							REACH
-						)
-						.setExpirationDuration(Geofence.NEVER_EXPIRE)
-						.setNotificationResponsiveness(1000)
-						.setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
-						.build());
-				}
-			}
+	}
 
-			@Override
-			public void onCancelled(DatabaseError databaseError) {
-				Log.d(TAG, "database error - 0" + databaseError.getMessage());
-			}
-		});
+	public void connectToGoogleApi() {
 
-		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-			return;
-		}
-		LocationServices.GeofencingApi.addGeofences(
-			googleApiClient,
-			getGeofencingRequest(),
-			getGeofencePendingIntent()
-		).setResultCallback(this);
 	}
 
 	protected void onStart() {
-		googleApiClient.connect();
 		super.onStart();
+		googleApiClient.reconnect();
 	}
 
 	protected void onStop() {
-		googleApiClient.disconnect();
 		super.onStop();
+		googleApiClient.disconnect();
 	}
 
-	// old
+	private void startLocationMoitoring() {
+		LocationRequest locationRequest = LocationRequest.create()
+			.setInterval(10000)
+			.setFastestInterval(5000)
+			.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
-
-	// new
-
-	@NonNull
-	private GeofencingRequest getGeofencingRequest() {
-		GeofencingRequest.Builder builder = new GeofencingRequest.Builder();
-		builder.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER);
-		builder.addGeofences(geofences);
-		return builder.build();
-	}
-
-	private PendingIntent getGeofencePendingIntent() {
-		// Reuse the PendingIntent if we already have it.
-		if ( pendingIntent != null) {
-			return pendingIntent;
+		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+			return;
 		}
+		LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, new LocationListener() {
+			@Override
+			public void onLocationChanged(Location location) {
+				Log.d(TAG, "location update");
+				currentLocation = location;
+			}
+		});
+	}
+
+	public void startGeofenceMonitoring() {
+
+		for (com.team_htbr.a1617proj1bloeddonatie_app.Location l : locationsList) {
+			geofences.add(new Geofence.Builder()
+				.setRequestId(l.getName())
+				.setCircularRegion(l.getLat(), l.getLng(), 20000)
+				.setExpirationDuration(Geofence.NEVER_EXPIRE)
+				.setNotificationResponsiveness(1000)
+				.setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
+				.build());
+		}
+
+		GeofencingRequest geofencingRequest = new GeofencingRequest.Builder()
+			.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
+			.addGeofences(geofences).build();
+
+
 		Intent intent = new Intent(this, GeofenceService.class);
-		// We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when
-		// calling addGeofences() and removeGeofences().
-		return PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-	}
+		pendingIntent = PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-	private void stopGeo() {
-		LocationServices.GeofencingApi.removeGeofences(
-			googleApiClient,
-			// This is the same pending intent that was used in addGeofences().
-			getGeofencePendingIntent()
-		).setResultCallback( this); // Result processed in onResult().
-	}
-
-	@Override
-	public void onResult(@NonNull Status status) {
-		if (status.isSuccess()) {
-			Log.d(TAG, "succecfully added gefence");
+		if (!googleApiClient.isConnected()) {
+			Log.d(TAG, "no connection");
 		} else {
-			Log.d(TAG, "Failed to add geofence + " + status.getStatus());
+			if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+				// TODO: Consider calling
+				//    ActivityCompat#requestPermissions
+				// here to request the missing permissions, and then overriding
+				//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+				//                                          int[] grantResults)
+				// to handle the case where the user grants the permission. See the documentation
+				// for ActivityCompat#requestPermissions for more details.
+				return;
+			}
+			LocationServices.GeofencingApi.addGeofences(googleApiClient, geofencingRequest, pendingIntent)
+				.setResultCallback(new ResultCallback<Status>() {
+					@Override
+					public void onResult(@NonNull Status status) {
+						if (status.isSuccess()) {
+							Log.d(TAG, "succesful add");
+						} else {
+							Log.d(TAG, "Failed to add");
+						}
+					}
+				});
 		}
+	}
+
+//	private void stopGeo() {
+//		LocationServices.GeofencingApi.removeGeofences(
+//			googleApiClient,
+//			// This is the same pending intent that was used in addGeofences().
+//			getGeofencePendingIntent()
+//		).setResultCallback( this); // Result processed in onResult().
+//	}
+
+	public static LatLng getMyLocation() {
+		if (currentLocation == null){
+			return null;
+		}
+		else return new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
 	}
 }
 

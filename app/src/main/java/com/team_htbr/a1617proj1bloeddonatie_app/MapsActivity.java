@@ -57,8 +57,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 		markers = new HashMap<String, Marker>();
 
 		// Add a marker in Brussel and move the camera
-		LatLng gent = new LatLng(51.045810, 3.714156);
-		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gent, 9));
+		LatLng currentLocation = MainActivity.getMyLocation();
+		LatLng brussel = new LatLng(51.045810, 3.714156);
+		if (currentLocation == null) {
+			mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(brussel, 9));
+		} else {
+			mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 13));
+		}
+
 
 		//enable search my location
 		if ((ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
