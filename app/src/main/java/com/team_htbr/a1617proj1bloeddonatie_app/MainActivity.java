@@ -16,7 +16,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 public class MainActivity extends AppCompatActivity {
 
 	private static final String TAG = "MainActivity";
-	private DrawerLayout mDrawerLayout;
+	DrawerLayout mDrawerLayout;
 	private ActionBarDrawerToggle mToggle;
 
 
