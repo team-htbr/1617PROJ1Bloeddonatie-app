@@ -85,17 +85,6 @@ public class MainActivity extends FragmentActivity  {
 			}
 		});
 
-		Button btnShowToken = (Button) findViewById(R.id.button_show_token);
-		btnShowToken.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				//Get the token
-				String token = FirebaseInstanceId.getInstance().getToken();
-				Log.d(TAG, "Token: " + token);
-				Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
-			}
-		});
-
 		Button btnBloodtype = (Button) findViewById(R.id.Bloodtype);
 		btnBloodtype.setOnClickListener(new View.OnClickListener() {
 			@Override
