@@ -41,7 +41,6 @@ public class MainActivity extends FragmentActivity  {
 	public static Location currentLocation;
 
 	private GoogleApiClient googleApiClient = null;
-	private PendingIntent pendingIntent = null;
 	private HashMap<String, com.team_htbr.a1617proj1bloeddonatie_app.Location> locationsList;
 	private ArrayList<Geofence> geofences;
 
@@ -196,7 +195,7 @@ public class MainActivity extends FragmentActivity  {
 
 
 		Intent intent = new Intent(this, GeofenceService.class);
-		pendingIntent = PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		PendingIntent pendingIntent = PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 		if (!googleApiClient.isConnected()) {
 			Log.d(TAG, "no connection");
