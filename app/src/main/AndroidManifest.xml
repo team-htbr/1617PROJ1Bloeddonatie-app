@@ -3,13 +3,8 @@
 	package="com.team_htbr.a1617proj1bloeddonatie_app">
 
 	<uses-permission android:name="android.permission.INTERNET" />
-
-	<!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality.
-    -->
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 	<application
 		android:allowBackup="true"
@@ -17,6 +12,7 @@
 		android:label="Bloeddonatie"
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
+
 		<activity android:name=".MainActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -30,6 +26,7 @@
 				<action android:name="com.google.firebase.MESSAGING_EVENT" />
 			</intent-filter>
 		</service>
+
 		<service android:name=".MyFirebaseInstanceIDService">
 			<intent-filter>
 				<action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -61,7 +58,8 @@
         -->
 		<meta-data
 			android:name="com.google.android.geo.API_KEY"
-			android:value="@string/google_maps_key" />
+			android:value="@string/google_maps_key"
+		/>
 
 		<activity
 			android:name=".MapsActivity"
@@ -70,6 +68,8 @@
 		<meta-data
 			android:name="android.support.PARENT_ACTIVITY"
 			android:value=".MainActivity" />
-	</application>
 
+		<service android:name=".GeofenceService" android:exported="true" android:enabled="true"/>
+
+	</application>
 </manifest>

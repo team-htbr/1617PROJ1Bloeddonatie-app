@@ -1,6 +1,7 @@
 package com.team_htbr.a1617proj1bloeddonatie_app;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * Created by bjorn on 22-4-2017.
@@ -16,6 +17,7 @@ public class Location {
 	private Boolean isMobile;
 	private double lat;
 	private double lng;
+	private MarkerOptions marker;
 
 	public Location(String id, String name, String street, String streetNumber, String city, Boolean isMobile, double lat, double lng) {
 		this.id = id;
@@ -26,10 +28,12 @@ public class Location {
 		this.isMobile = isMobile;
 		this.lat = lat;
 		this.lng = lng;
+
+		this.marker = new MarkerOptions();
 	}
 
 	public Location() {
-
+		this.marker = new MarkerOptions();
 	}
 
 	public void setId(String id) {
@@ -54,6 +58,19 @@ public class Location {
 
 	public void setMoblie(Boolean moblie) {
 		isMobile = moblie;
+	}
+
+	public void setMobile(Boolean mobile) {
+		isMobile = mobile;
+	}
+
+	public void setMarker(MarkerOptions marker) {
+		this.marker = marker;
+	}
+
+	public Boolean getMobile() {
+
+		return isMobile;
 	}
 
 	public void setLat(double lat) {
@@ -103,5 +120,13 @@ public class Location {
 
 	public String getAddress() {
 		return street + " " + streetNumber + ", " + city;
+	}
+
+	public MarkerOptions getMarker() {
+		this.marker.position(this.getCoordinates());
+		this.marker.title(this.name);
+		this.marker.snippet(this.getAddress());
+
+		return this.marker;
 	}
 }

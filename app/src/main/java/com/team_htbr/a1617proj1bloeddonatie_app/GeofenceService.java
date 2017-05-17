@@ -1,5 +1,6 @@
 package com.team_htbr.a1617proj1bloeddonatie_app;
 
+import android.app.IntentService;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -8,42 +9,44 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
-
-import com.google.firebase.messaging.FirebaseMessagingService;
-import com.google.firebase.messaging.RemoteMessage;
+import com.google.android.gms.location.Geofence;
+import com.google.android.gms.location.GeofencingEvent;
+import java.util.List;
 
 /**
- * Created by Ruben on 23/03/2017.
+ * @author bjorn
  */
 
-public class MyFirebaseMessagingService extends FirebaseMessagingService {
-	private static final String TAG = "MyFirebaseMsgService";
+public class GeofenceService extends IntentService {
+
+	public static final String TAG = "GeofenceService";
+
+
+	public GeofenceService() {
+		super(TAG);
+
+	}
 
 	@Override
-	public void onMessageReceived(RemoteMessage remoteMessage) {
+	protected void onHandleIntent(Intent intent) {
+		GeofencingEvent event = GeofencingEvent.fromIntent(intent);
+		if (event.hasError()) {
+			Log.d(TAG, "error");
+		} else {
+			int transition = event.getGeofenceTransition();
+			List<Geofence> geofences = event.getTriggeringGeofences();
+			Geofence geofence = geofences.get(0);
+			String requestId = geofence.getRequestId();
 
-		Log.d(TAG, "FROM:" + remoteMessage.getFrom());
-
-		//Check if the message contains data
-		if(remoteMessage.getData().size() > 0) {
-			Log.d(TAG, "Message data: " + remoteMessage.getData());
-		}
-
-		//Check if the message contains notification
-
-		if(remoteMessage.getNotification() != null) {
-			Log.d(TAG, "Message body:" + remoteMessage.getNotification().getBody());
-			sendNotification(remoteMessage.getNotification().getBody());
+			if (transition == Geofence.GEOFENCE_TRANSITION_ENTER) {
+				Log.d(TAG, "entering geofence - " + geofence.getRequestId());
+				sendNotification("je bent in de buurt van donatiecentrum " + requestId + " klik hier voor address ");
+			}
 		}
 	}
 
-	/**
-	 * Display the notification
-	 * @param body
-	 */
-	public void sendNotification(String body) {
-
-		Intent intent = new Intent(this, MainActivity.class);
+	private void sendNotification(String bla) {
+		Intent intent = new Intent(this, MapsActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0/*Request code*/, intent, PendingIntent.FLAG_ONE_SHOT);
@@ -53,7 +56,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 		NotificationCompat.Builder notifiBuilder = new NotificationCompat.Builder(this)
 			.setSmallIcon(R.mipmap.ic_launcher)
 			.setContentTitle("Bloeddonatie")
-			.setContentText(body)
+			.setContentText(bla)
 			.setAutoCancel(true)
 			.setSound(notificationSound)
 			.setContentIntent(pendingIntent);
