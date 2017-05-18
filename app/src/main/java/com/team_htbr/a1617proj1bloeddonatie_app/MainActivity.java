@@ -231,14 +231,6 @@ public class MainActivity extends AppCompatActivity {
 		}
 	}
 
-//	private void stopGeo() {
-//		LocationServices.GeofencingApi.removeGeofences(
-//			googleApiClient,
-//			// This is the same pending intent that was used in addGeofences().
-//			getGeofencePendingIntent()
-//		).setResultCallback( this); // Result processed in onResult().
-//	}
-
 	public static LatLng getMyLocation() {
 		if (currentLocation == null){
 			return null;
@@ -249,7 +241,6 @@ public class MainActivity extends AppCompatActivity {
 	private void saveList(List<String> save){
 		SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 		SharedPreferences.Editor editor = sharedPreferences.edit();
-    /* sKey is an array */
 		editor.putInt("Keys_size", save.size());
 
 		for(int i = 0;i < save.size(); i++)
