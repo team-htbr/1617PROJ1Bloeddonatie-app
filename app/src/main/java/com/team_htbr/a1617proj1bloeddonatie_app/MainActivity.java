@@ -257,15 +257,14 @@ public class MainActivity extends AppCompatActivity {
 			editor.remove("Key_" + i);
 			editor.putString("Key_" + i, save.get(i));
 		}
-
-		editor.commit();
+		editor.apply();
 	}
 
 
 	private List<String> loadList(){
 		List loadedList = new ArrayList();
 
-		SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);;
+		SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 		loadedList.clear();
 		int size = sharedPreferences.getInt("Keys_size", 0);
 
