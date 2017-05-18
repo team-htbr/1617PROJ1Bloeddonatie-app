@@ -4,13 +4,15 @@ package com.team_htbr.a1617proj1bloeddonatie_app;
 import android.Manifest;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,26 +31,27 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
-public class MainActivity extends FragmentActivity  {
+public class MainActivity extends AppCompatActivity {
 
 	public static final String TAG = "MainActivity";
-	public static final int REACH = 1000;
 	public static Location currentLocation;
 
 	private GoogleApiClient googleApiClient = null;
-	private HashMap<String, com.team_htbr.a1617proj1bloeddonatie_app.Location> locationsList;
-	private ArrayList<Geofence> geofences;
+	private List<com.team_htbr.a1617proj1bloeddonatie_app.Location> locationsList;
+	private List<Geofence> geofences;
+	private List<String> locationKeys;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		setTitle("Rode Kruis");
+
 		geofences = new ArrayList<>();
-		locationsList = new HashMap<>();
+		locationsList = new ArrayList<>();
+		locationKeys = loadList();
 
 		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
 		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations_test");
@@ -56,10 +59,14 @@ public class MainActivity extends FragmentActivity  {
 		locationsDataBase.addChildEventListener(new ChildEventListener() {
 			@Override
 			public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-				googleApiClient.connect();
-				locationsList.put(s, dataSnapshot.getValue(com.team_htbr.a1617proj1bloeddonatie_app.Location.class));
-				startLocationMoitoring();
-				startGeofenceMonitoring();
+				if (!locationKeys.contains(dataSnapshot.child("id").getValue().toString())) {
+					locationsList.add(dataSnapshot.getValue(com.team_htbr.a1617proj1bloeddonatie_app.Location.class));
+					startLocationMoitoring();
+					startGeofenceMonitoring();
+					locationKeys.add(dataSnapshot.child("id").getValue().toString());
+					saveList(locationKeys);
+				}
+				locationKeys = loadList();
 			}
 
 			@Override
@@ -82,6 +89,8 @@ public class MainActivity extends FragmentActivity  {
 				Log.d(TAG, "bla bla");
 			}
 		});
+
+
 
 		Button btnBloodtype = (Button) findViewById(R.id.Bloodtype);
 		btnBloodtype.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +115,16 @@ public class MainActivity extends FragmentActivity  {
 				startActivity(new Intent(MainActivity.this, MapsActivity.class));
 			}
 		});
+
 		connectToGoogleApi();
+
+		final Handler handler = new Handler();
+		handler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				startLocationMoitoring();
+			}
+		}, 5000);
 
 	}
 
@@ -146,67 +164,70 @@ public class MainActivity extends FragmentActivity  {
 	}
 
 	private void startLocationMoitoring() {
-		LocationRequest locationRequest = LocationRequest.create()
-			.setInterval(10000)
-			.setFastestInterval(5000)
-			.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+		if (googleApiClient.isConnected()) {
+			LocationRequest locationRequest = LocationRequest.create()
+				.setInterval(10000)
+				.setFastestInterval(5000)
+				.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
-		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-			return;
-		}
-		LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, new LocationListener() {
-			@Override
-			public void onLocationChanged(Location location) {
-				Log.d(TAG, "location update");
-				currentLocation = location;
+			if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+				return;
 			}
-		});
+			LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, new LocationListener() {
+				@Override
+				public void onLocationChanged(Location location) {
+					Log.d(TAG, "location update");
+					currentLocation = location;
+				}
+			});
+		}
 	}
 
 	public void startGeofenceMonitoring() {
-
-		for (Map.Entry<String, com.team_htbr.a1617proj1bloeddonatie_app.Location> entry : locationsList.entrySet()) {
-			geofences.add(new Geofence.Builder()
-				.setRequestId(entry.getValue().getName())
-				.setCircularRegion(entry.getValue().getLat(), entry.getValue().getLng(), 20000)
-				.setExpirationDuration(Geofence.NEVER_EXPIRE)
-				.setNotificationResponsiveness(1000)
-				.setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
-				.build());
-		}
-
-		GeofencingRequest geofencingRequest = new GeofencingRequest.Builder()
-			.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
-			.addGeofences(geofences).build();
-
-
-		Intent intent = new Intent(this, GeofenceService.class);
-		PendingIntent pendingIntent = PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-		if (!googleApiClient.isConnected()) {
-			Log.d(TAG, "no connection");
-		} else {
-			if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-				// TODO: Consider calling
-				//    ActivityCompat#requestPermissions
-				// here to request the missing permissions, and then overriding
-				//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-				//                                          int[] grantResults)
-				// to handle the case where the user grants the permission. See the documentation
-				// for ActivityCompat#requestPermissions for more details.
-				return;
+		if (googleApiClient.isConnected()) {
+			for (com.team_htbr.a1617proj1bloeddonatie_app.Location location: locationsList) {
+				geofences.add(new Geofence.Builder()
+					.setRequestId(location.getName())
+					.setCircularRegion(location.getLat(), location.getLng(), 20000)
+					.setExpirationDuration(Geofence.NEVER_EXPIRE)
+					.setNotificationResponsiveness(5000)
+					.setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
+					.build());
 			}
-			LocationServices.GeofencingApi.addGeofences(googleApiClient, geofencingRequest, pendingIntent)
-				.setResultCallback(new ResultCallback<Status>() {
-					@Override
-					public void onResult(@NonNull Status status) {
-						if (status.isSuccess()) {
-							Log.d(TAG, "succesful add");
-						} else {
-							Log.d(TAG, "Failed to add");
+
+			GeofencingRequest geofencingRequest = new GeofencingRequest.Builder()
+				.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
+				.addGeofences(geofences).build();
+
+
+			Intent intent = new Intent(this, GeofenceService.class);
+			PendingIntent pendingIntent = PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+			if (!googleApiClient.isConnected()) {
+				Log.d(TAG, "no connection");
+			} else {
+				if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+					// TODO: Consider calling
+					//    ActivityCompat#requestPermissions
+					// here to request the missing permissions, and then overriding
+					//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+					//                                          int[] grantResults)
+					// to handle the case where the user grants the permission. See the documentation
+					// for ActivityCompat#requestPermissions for more details.
+					return;
+				}
+				LocationServices.GeofencingApi.addGeofences(googleApiClient, geofencingRequest, pendingIntent)
+					.setResultCallback(new ResultCallback<Status>() {
+						@Override
+						public void onResult(@NonNull Status status) {
+							if (status.isSuccess()) {
+								Log.d(TAG, "succesful add");
+							} else {
+								Log.d(TAG, "Failed to add");
+							}
 						}
-					}
-				});
+					});
+			}
 		}
 	}
 
@@ -223,6 +244,37 @@ public class MainActivity extends FragmentActivity  {
 			return null;
 		}
 		else return new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+	}
+
+	private void saveList(List<String> save){
+		SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+		SharedPreferences.Editor editor = sharedPreferences.edit();
+    /* sKey is an array */
+		editor.putInt("Keys_size", save.size());
+
+		for(int i = 0;i < save.size(); i++)
+		{
+			editor.remove("Key_" + i);
+			editor.putString("Key_" + i, save.get(i));
+		}
+
+		editor.commit();
+	}
+
+
+	private List<String> loadList(){
+		List loadedList = new ArrayList();
+
+		SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);;
+		loadedList.clear();
+		int size = sharedPreferences.getInt("Keys_size", 0);
+
+		for(int i=0;i<size;i++)
+		{
+			loadedList.add(sharedPreferences.getString("Key_" + i, null));
+		}
+
+		return loadedList;
 	}
 }
 
