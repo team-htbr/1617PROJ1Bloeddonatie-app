@@ -51,7 +51,7 @@ public class MainActivity extends FragmentActivity  {
 		locationsList = new HashMap<>();
 
 		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
-		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations_test");
+		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations");
 
 		locationsDataBase.addChildEventListener(new ChildEventListener() {
 			@Override
