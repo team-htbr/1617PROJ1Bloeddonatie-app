@@ -46,11 +46,10 @@ public class GeofenceService extends IntentService {
 	}
 
 	private void sendNotification(String bla) {
-		Intent intent = new Intent(this, MapsActivity.class);
+		Intent intent = new Intent(this, MainActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0/*Request code*/, intent, PendingIntent.FLAG_ONE_SHOT);
-		//Set sound of notification
+		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 		Uri notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
 		NotificationCompat.Builder notifiBuilder = new NotificationCompat.Builder(this)
@@ -62,6 +61,6 @@ public class GeofenceService extends IntentService {
 			.setContentIntent(pendingIntent);
 
 		NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-		notificationManager.notify(0 /*ID of notification*/, notifiBuilder.build());
+		notificationManager.notify(0, notifiBuilder.build());
 	}
 }
