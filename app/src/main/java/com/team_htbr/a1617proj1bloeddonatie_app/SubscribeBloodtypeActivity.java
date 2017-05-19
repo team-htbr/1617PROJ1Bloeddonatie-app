@@ -132,6 +132,7 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 		} else if(bloodType.equals(type)) {
 			clearButtons();
 			unsubscribe();
+			saveInfo("");
 			bloodType = "";
 		}
 	}
