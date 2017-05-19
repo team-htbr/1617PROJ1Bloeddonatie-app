@@ -74,7 +74,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 		//get database from firebase
 		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
-		DatabaseReference markersDataBase = fireBaseDataBase.child("locations_test");
+		DatabaseReference markersDataBase = fireBaseDataBase.child("locations");
 
 		//handels changes in the database
 		markersDataBase.addChildEventListener(new ChildEventListener() {
