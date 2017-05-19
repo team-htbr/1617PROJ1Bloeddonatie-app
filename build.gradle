@@ -2,10 +2,11 @@
 
 buildscript {
     repositories {
-        jcenter()
-    }
+		jcenter { url "http://jcenter.bintray.com" }
+		mavenCentral()
+	}
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.1'
+        classpath 'com.android.tools.build:gradle:2.3.2'
 		// Firebase integration: Required to run Google-services-plug-in (project/app/google-services.json)
 		classpath 'com.google.gms:google-services:3.0.0'
 
@@ -16,7 +17,8 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+		jcenter { url "http://jcenter.bintray.com" }
+		mavenCentral()
     }
 }
 

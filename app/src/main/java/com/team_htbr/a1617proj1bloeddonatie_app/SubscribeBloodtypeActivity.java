@@ -129,6 +129,10 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 
 			unsubscribe();
 			FirebaseMessaging.getInstance().subscribeToTopic("blood-" + type);
+		} else if(bloodType.equals(type)) {
+			clearButtons();
+			unsubscribe();
+			bloodType = "";
 		}
 	}
 
