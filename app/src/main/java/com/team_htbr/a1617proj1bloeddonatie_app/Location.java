@@ -17,9 +17,11 @@ public class Location {
 	private Boolean isMobile;
 	private double lat;
 	private double lng;
+	private String startDate;
+	private String endDate;
 	private MarkerOptions marker;
 
-	public Location(String id, String name, String street, String streetNumber, String city, Boolean isMobile, double lat, double lng) {
+	public Location(String id, String name, String street, String streetNumber, String city, Boolean isMobile, double lat, double lng, String startDate, String endDate) {
 		this.id = id;
 		this.name = name;
 		this.street = street;
@@ -28,6 +30,8 @@ public class Location {
 		this.isMobile = isMobile;
 		this.lat = lat;
 		this.lng = lng;
+		this.startDate = startDate;
+		this.endDate = endDate;
 
 		this.marker = new MarkerOptions();
 	}
@@ -62,6 +66,14 @@ public class Location {
 
 	public void setMobile(Boolean mobile) {
 		isMobile = mobile;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 
 	public void setMarker(MarkerOptions marker) {
@@ -114,6 +126,14 @@ public class Location {
 		return lng;
 	}
 
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
 	public LatLng getCoordinates() {
 		return new LatLng(lat, lng);
 	}
@@ -122,10 +142,14 @@ public class Location {
 		return street + " " + streetNumber + ", " + city;
 	}
 
+	public String getDates() {
+		return "\n" + startDate + " - " + endDate;
+	}
+
 	public MarkerOptions getMarker() {
 		this.marker.position(this.getCoordinates());
 		this.marker.title(this.name);
-		this.marker.snippet(this.getAddress());
+		this.marker.snippet(this.getAddress() + this.getDates());
 
 		return this.marker;
 	}

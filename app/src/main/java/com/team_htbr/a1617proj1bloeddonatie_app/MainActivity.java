@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 		locationKeys = loadList();
 
 		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
-		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations_test");
+		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations");
 
 		locationsDataBase.addChildEventListener(new ChildEventListener() {
 			@Override
