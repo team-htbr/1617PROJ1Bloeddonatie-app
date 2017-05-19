@@ -27,7 +27,7 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_subscribe_bloodtype);
-		setTitle("Kies bloed type");
+		setTitle("Selecteer jouw bloedtype");
 
 		//get buttons
 		TypeAp = (Button)findViewById(R.id.buttonAp);
@@ -166,7 +166,7 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 		editor.putString("bloodtype", type);
 		editor.apply();
 
-		Toast.makeText(this, "saved", Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "opgeslagen", Toast.LENGTH_LONG).show();
 	}
 
 	private void getInfo() {
