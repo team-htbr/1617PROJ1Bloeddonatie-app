@@ -4,7 +4,7 @@
 
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 	<application
 		android:allowBackup="true"
@@ -12,7 +12,6 @@
 		android:label="Bloeddonatie"
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
-    
 		<activity android:name=".SplashScreen">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -20,15 +19,13 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-
-		<activity android:name=".MainActivity"></activity>
+		<activity android:name=".MainActivity" />
 
 		<service android:name=".MyFirebaseMessagingService">
 			<intent-filter>
 				<action android:name="com.google.firebase.MESSAGING_EVENT" />
 			</intent-filter>
 		</service>
-
 		<service android:name=".MyFirebaseInstanceIDService">
 			<intent-filter>
 				<action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -61,8 +58,7 @@
         -->
 		<meta-data
 			android:name="com.google.android.geo.API_KEY"
-			android:value="@string/google_maps_key"
-		/>
+			android:value="@string/google_maps_key" />
 
 		<activity
 			android:name=".MapsActivity"
@@ -73,7 +69,15 @@
 			android:name="android.support.PARENT_ACTIVITY"
 			android:value=".MainActivity" />
 
-		<service android:name=".GeofenceService" android:exported="true" android:enabled="true"/>
+		<service
+			android:name=".GeofenceService"
+			android:enabled="true"
+			android:exported="true" />
 
+		<activity
+			android:name=".SideBar"
+			android:label="@string/title_activity_side_bar"
+			android:theme="@style/AppTheme.NoActionBar"></activity>
 	</application>
+
 </manifest>
