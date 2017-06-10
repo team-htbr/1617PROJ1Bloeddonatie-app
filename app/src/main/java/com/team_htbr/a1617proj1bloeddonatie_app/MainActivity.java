@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
 	public static final String TAG = "MainActivity";
 	public static Location currentLocation;
-	private DrawerLayout mDrawerLayout;
 	private ActionBarDrawerToggle mToggle;
 
 
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 		setTitle("Rode Kruis");
 
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+		DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
 		mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
 		mDrawerLayout.addDrawerListener(mToggle);
