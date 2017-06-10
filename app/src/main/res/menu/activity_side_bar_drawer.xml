@@ -3,21 +3,25 @@
 
 	<group android:checkableBehavior="single">
 		<item
-			android:id="@+id/nav_camera"
+			android:id="@+id/nav_centra"
+			android:icon="@drawable/ic_menu_location"
+			android:title="Donorcentra" />
+		<item
+			android:id="@+id/nav_test"
+			android:icon="@drawable/ic_menu_test"
+			android:title="Zelfdonortest" />
+		<item
+			android:id="@+id/nav_bloedtype"
+			android:icon="@drawable/ic_menu_bloed"
+			android:title="Bloedtype" />
+		<item
+			android:id="@+id/nav_afspraak"
+			android:icon="@drawable/ic_menu_calendar"
+			android:title="Maak een afspraak" />
+		<item
+			android:id="@+id/nav_selfie"
 			android:icon="@drawable/ic_menu_camera"
-			android:title="Import" />
-		<item
-			android:id="@+id/nav_gallery"
-			android:icon="@drawable/ic_menu_gallery"
-			android:title="Gallery" />
-		<item
-			android:id="@+id/nav_slideshow"
-			android:icon="@drawable/ic_menu_slideshow"
-			android:title="Slideshow" />
-		<item
-			android:id="@+id/nav_manage"
-			android:icon="@drawable/ic_menu_manage"
-			android:title="Tools" />
+			android:title="Deel een selfie" />
 	</group>
 
 
@@ -26,8 +30,8 @@
 	android:checkableBehavior="none">
 
 	<item
-		android:id="@+id/nav_share"
-		android:icon="@drawable/ic_menu_send"
+		android:id="@+id/nav_instelling"
+		android:icon="@drawable/ic_menu_settings"
 		android:title="Instellingen" />
 	</group>
 
