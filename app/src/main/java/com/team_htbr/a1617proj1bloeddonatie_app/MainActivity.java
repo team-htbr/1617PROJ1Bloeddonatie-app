@@ -107,12 +107,11 @@ public class MainActivity extends AppCompatActivity {
 		});
 
 
-		CardView cardMap = (CardView) findViewById(R.id.Location);
-		cardMap.setOnClickListener(new View.OnClickListener(){
+		Button btnMaps = (Button) findViewById(R.id.GoogleMap);
+		btnMaps.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-				startActivity(intent);
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, MapsActivity.class));
 			}
 		});
 
