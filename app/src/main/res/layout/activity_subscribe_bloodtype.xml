@@ -4,6 +4,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:background="#e2e2e2"
 	tools:context="com.team_htbr.a1617proj1bloeddonatie_app.SubscribeBloodtypeActivity"
 	tools:layout_editor_absoluteY="81dp"
 	tools:layout_editor_absoluteX="0dp">

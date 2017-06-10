@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -106,28 +107,31 @@ public class MainActivity extends AppCompatActivity {
 		});
 
 
-
-		Button btnBloodtype = (Button) findViewById(R.id.Bloodtype);
-		btnBloodtype.setOnClickListener(new View.OnClickListener() {
+		CardView cardMap = (CardView) findViewById(R.id.Location);
+		cardMap.setOnClickListener(new View.OnClickListener(){
 			@Override
-			public void onClick(View view) {
-				startActivity(new Intent(MainActivity.this, SubscribeBloodtypeActivity.class));
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+				startActivity(intent);
 			}
 		});
 
-		Button btnDonorTest = (Button) findViewById(R.id.donorTest);
-		btnDonorTest.setOnClickListener(new View.OnClickListener() {
+		CardView cardTest = (CardView) findViewById(R.id.Test);
+		cardTest.setOnClickListener(new View.OnClickListener(){
 			@Override
-			public void onClick(View view) {
-				startActivity(new Intent(MainActivity.this, DonorTestActivity.class));
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, DonorTestActivity.class);
+				startActivity(intent);
 			}
 		});
 
-		Button btnMaps = (Button) findViewById(R.id.GoogleMap);
-		btnMaps.setOnClickListener(new View.OnClickListener() {
+
+		CardView cardBloed = (CardView) findViewById(R.id.Bloed);
+		cardBloed.setOnClickListener(new View.OnClickListener(){
 			@Override
-			public void onClick(View view) {
-				startActivity(new Intent(MainActivity.this, MapsActivity.class));
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, SubscribeBloodtypeActivity.class);
+				startActivity(intent);
 			}
 		});
 
@@ -284,6 +288,26 @@ public class MainActivity extends AppCompatActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle navigation view item clicks here.
+		/*int id = item.getItemId();
+
+		if (id == R.id.nav_bloedtype) {
+			Intent intent1 = new Intent(this,SubscribeBloodtypeActivity.class);
+			this.startActivity(intent1);
+			return true;
+
+		}/* else if (id == R.id.nav_gallery) {
+
+		} else if (id == R.id.nav_slideshow) {
+
+		} else if (id == R.id.nav_manage) {
+
+		} else if (id == R.id.nav_share) {
+
+		} else if (id == R.id.nav_send) {
+
+		}*/
+
 		if(mToggle.onOptionsItemSelected(item)){
 			return true;
 		}
