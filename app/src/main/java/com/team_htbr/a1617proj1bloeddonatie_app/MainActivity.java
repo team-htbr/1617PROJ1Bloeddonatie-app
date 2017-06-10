@@ -49,9 +49,15 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 		setTitle("Rode Kruis");
 
+		if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+			requestPermissions(new String[] { Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1234);
+		}
+
 		geofences = new ArrayList<>();
 		locationsList = new ArrayList<>();
 		locationKeys = loadList();
+
+		locationKeys.clear();
 
 		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
 		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations");
@@ -117,15 +123,7 @@ public class MainActivity extends AppCompatActivity {
 		});
 
 		connectToGoogleApi();
-
-		final Handler handler = new Handler();
-		handler.postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				startLocationMoitoring();
-			}
-		}, 5000);
-
+		startLocationMoitoring();
 	}
 
 	private void connectToGoogleApi() {
@@ -190,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
 					.setRequestId(location.getName())
 					.setCircularRegion(location.getLat(), location.getLng(), 20000)
 					.setExpirationDuration(Geofence.NEVER_EXPIRE)
-					.setNotificationResponsiveness(5000)
+					.setNotificationResponsiveness(5000000)
 					.setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
 					.build());
 			}
@@ -207,13 +205,6 @@ public class MainActivity extends AppCompatActivity {
 				Log.d(TAG, "no connection");
 			} else {
 				if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-					// TODO: Consider calling
-					//    ActivityCompat#requestPermissions
-					// here to request the missing permissions, and then overriding
-					//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-					//                                          int[] grantResults)
-					// to handle the case where the user grants the permission. See the documentation
-					// for ActivityCompat#requestPermissions for more details.
 					return;
 				}
 				LocationServices.GeofencingApi.addGeofences(googleApiClient, geofencingRequest, pendingIntent)
