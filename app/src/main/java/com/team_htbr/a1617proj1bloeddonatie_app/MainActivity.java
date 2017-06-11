@@ -114,22 +114,20 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
-		CardView cardTest = (CardView) findViewById(R.id.Test);
-		cardTest.setOnClickListener(new View.OnClickListener(){
+		Button btnDonorTest = (Button) findViewById(R.id.donorTest);
+		btnDonorTest.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, DonorTestActivity.class);
-				startActivity(intent);
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, DonorTestActivity.class));
 			}
 		});
 
 
-		CardView cardBloed = (CardView) findViewById(R.id.Bloed);
-		cardBloed.setOnClickListener(new View.OnClickListener(){
+		Button btnBloodtype = (Button) findViewById(R.id.Bloodtype);
+		btnBloodtype.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this, SubscribeBloodtypeActivity.class);
-				startActivity(intent);
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, SubscribeBloodtypeActivity.class));
 			}
 		});
 
