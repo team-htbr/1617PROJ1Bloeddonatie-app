@@ -12,8 +12,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
 	public static final String TAG = "MainActivity";
 	public static Location currentLocation;
+	private ActionBarDrawerToggle mToggle;
+
 
 	private GoogleApiClient googleApiClient = null;
 	private List<com.team_htbr.a1617proj1bloeddonatie_app.Location> locationsList;
@@ -49,11 +54,19 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_main);
 		setTitle("Rode Kruis");
 
+		DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+		mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+		mDrawerLayout.addDrawerListener(mToggle);
+		mToggle.syncState();
+
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 		geofences = new ArrayList<>();
 		locationsList = new ArrayList<>();
 		locationKeys = loadList();
-
-		locationKeys.clear();
+		
 
 		requestPermissions(new String[] { Manifest.permission.ACCESS_FINE_LOCATION}, 1234);
 
@@ -121,6 +134,53 @@ public class MainActivity extends AppCompatActivity {
 				Log.d(TAG, "bla bla");
 			}
 		});
+
+		Button btnMaps = (Button) findViewById(R.id.GoogleMap);
+		btnMaps.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, MapsActivity.class));
+			}
+		});
+
+		Button btnDonorTest = (Button) findViewById(R.id.donorTest);
+		btnDonorTest.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, DonorTestActivity.class));
+			}
+		});
+
+
+		Button btnBloodtype = (Button) findViewById(R.id.Bloodtype);
+		btnBloodtype.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, SubscribeBloodtypeActivity.class));
+			}
+		});
+
+		connectToGoogleApi();
+
+		final Handler handler = new Handler();
+		handler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				startLocationMoitoring();
+			}
+		}, 5000);
+	}
+
+	public void redirectMaps(MenuItem item){
+		startActivity(new Intent(MainActivity.this, MapsActivity.class));
+	}
+
+	public void redirectDonorTest(MenuItem item){
+		startActivity(new Intent(MainActivity.this, DonorTestActivity.class));
+	}
+
+	public void redirectBloodType(MenuItem item){
+		startActivity(new Intent(MainActivity.this, SubscribeBloodtypeActivity.class));
 	}
 
 	private void connectToGoogleApi() {
@@ -256,6 +316,33 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle navigation view item clicks here.
+		/*int id = item.getItemId();
+
+		if (id == R.id.nav_bloedtype) {
+			Intent intent1 = new Intent(this,SubscribeBloodtypeActivity.class);
+			this.startActivity(intent1);
+			return true;
+
+		}/* else if (id == R.id.nav_gallery) {
+
+		} else if (id == R.id.nav_slideshow) {
+
+		} else if (id == R.id.nav_manage) {
+
+		} else if (id == R.id.nav_share) {
+
+		} else if (id == R.id.nav_send) {
+
+		}*/
+
+		if(mToggle.onOptionsItemSelected(item)){
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+  }
+
 	public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
 		switch (requestCode) {
 			case 1234: {

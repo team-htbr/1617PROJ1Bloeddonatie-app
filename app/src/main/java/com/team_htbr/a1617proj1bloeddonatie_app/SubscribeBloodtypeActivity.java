@@ -138,14 +138,14 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 	}
 
 	private void clearButtons() {
-		TypeAp.setBackgroundColor(getResources().getColor(R.color.button_default));
-		TypeBp.setBackgroundColor(getResources().getColor(R.color.button_default));
-		TypeABp.setBackgroundColor(getResources().getColor(R.color.button_default));
-		TypeOp.setBackgroundColor(getResources().getColor(R.color.button_default));
-		TypeAn.setBackgroundColor(getResources().getColor(R.color.button_default));
-		TypeBn.setBackgroundColor(getResources().getColor(R.color.button_default));
-		TypeABn.setBackgroundColor(getResources().getColor(R.color.button_default));
-		TypeOn.setBackgroundColor(getResources().getColor(R.color.button_default));
+		TypeAp.setBackgroundColor(getResources().getColor(R.color.SplashColor));
+		TypeBp.setBackgroundColor(getResources().getColor(R.color.SplashColor));
+		TypeABp.setBackgroundColor(getResources().getColor(R.color.SplashColor));
+		TypeOp.setBackgroundColor(getResources().getColor(R.color.SplashColor));
+		TypeAn.setBackgroundColor(getResources().getColor(R.color.SplashColor));
+		TypeBn.setBackgroundColor(getResources().getColor(R.color.SplashColor));
+		TypeABn.setBackgroundColor(getResources().getColor(R.color.SplashColor));
+		TypeOn.setBackgroundColor(getResources().getColor(R.color.SplashColor));
 	}
 
 	private void unsubscribe() {
