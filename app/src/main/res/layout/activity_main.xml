@@ -54,8 +54,9 @@
 
 						<ImageView
 							android:id="@+id/imageView5"
-							android:layout_width="match_parent"
+							android:layout_width="wrap_content"
 							android:layout_height="154dp"
+							android:scaleType="fitXY"
 							card_view:srcCompat="@drawable/donorcentra" />
 
 						<LinearLayout
@@ -122,11 +123,11 @@
 					android:layout_marginLeft="12dp"
 					android:layout_marginRight="12dp"
 					android:layout_marginStart="12dp"
-					android:layout_marginTop="328dp"
+					android:layout_marginTop="16dp"
 					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintLeft_toLeftOf="parent"
 					app:layout_constraintRight_toRightOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/Location"
 					card_view:cardBackgroundColor="#FFFFFF"
 					card_view:cardCornerRadius="1dp"
 					card_view:cardElevation="6sp"
@@ -144,6 +145,7 @@
 							android:id="@+id/imageView3"
 							android:layout_width="match_parent"
 							android:layout_height="135dp"
+							android:scaleType="fitXY"
 							card_view:srcCompat="@drawable/donatie" />
 
 						<LinearLayout
@@ -209,12 +211,12 @@
 					android:layout_marginLeft="12dp"
 					android:layout_marginRight="12dp"
 					android:layout_marginStart="12dp"
-					android:layout_marginTop="624dp"
+					android:layout_marginTop="16dp"
 					android:layout_marginBottom="16dp"
 					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintLeft_toLeftOf="parent"
 					app:layout_constraintRight_toRightOf="parent"
-					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/Test"
 					card_view:cardBackgroundColor="#FFFFFF"
 					card_view:cardCornerRadius="1dp"
 					card_view:cardElevation="6sp"
@@ -231,7 +233,8 @@
 						<ImageView
 							android:id="@+id/imageView2"
 							android:layout_width="match_parent"
-							android:layout_height="135dp"
+							android:layout_height="100dp"
+							android:scaleType="fitXY"
 							card_view:srcCompat="@drawable/bloedgroep" />
 
 						<LinearLayout
