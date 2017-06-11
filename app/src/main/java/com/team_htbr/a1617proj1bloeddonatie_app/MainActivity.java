@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
 	private GoogleApiClient googleApiClient = null;
 	private List<com.team_htbr.a1617proj1bloeddonatie_app.Location> locationsList;
 	private List<Geofence> geofences;
-	private List<String> locationKeys;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
 		geofences = new ArrayList<>();
 		locationsList = new ArrayList<>();
-		locationKeys = loadList();
-		
+
 
 		requestPermissions(new String[] { Manifest.permission.ACCESS_FINE_LOCATION}, 1234);
 
@@ -104,14 +102,9 @@ public class MainActivity extends AppCompatActivity {
 		locationsDataBase.addChildEventListener(new ChildEventListener() {
 			@Override
 			public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-				if (!locationKeys.contains(dataSnapshot.child("id").getValue().toString())) {
 					locationsList.add(dataSnapshot.getValue(com.team_htbr.a1617proj1bloeddonatie_app.Location.class));
 					startLocationMoitoring();
 					startGeofenceMonitoring();
-					locationKeys.add(dataSnapshot.child("id").getValue().toString());
-					saveList(locationKeys);
-				}
-				locationKeys = loadList();
 			}
 
 			@Override
@@ -243,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
 			for (com.team_htbr.a1617proj1bloeddonatie_app.Location location: locationsList) {
 				geofences.add(new Geofence.Builder()
 					.setRequestId(location.getName())
-					.setCircularRegion(location.getLat(), location.getLng(), 20000)
+					.setCircularRegion(location.getLat(), location.getLng(), 1000)
 					.setExpirationDuration(Geofence.NEVER_EXPIRE)
 					.setNotificationResponsiveness(5000)
 					.setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
@@ -284,35 +277,6 @@ public class MainActivity extends AppCompatActivity {
 			return null;
 		}
 		else return new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-	}
-
-	private void saveList(List<String> save){
-		SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
-		SharedPreferences.Editor editor = sharedPreferences.edit();
-		editor.putInt("Keys_size", save.size());
-
-		for(int i = 0;i < save.size(); i++)
-		{
-			editor.remove("Key_" + i);
-			editor.putString("Key_" + i, save.get(i));
-		}
-		editor.apply();
-	}
-
-
-	private List<String> loadList(){
-		List loadedList = new ArrayList();
-
-		SharedPreferences sharedPreferences = getSharedPreferences("userInfo", MODE_PRIVATE);
-		loadedList.clear();
-		int size = sharedPreferences.getInt("Keys_size", 0);
-
-		for(int i=0;i<size;i++)
-		{
-			loadedList.add(sharedPreferences.getString("Key_" + i, null));
-		}
-
-		return loadedList;
 	}
 
 	@Override
