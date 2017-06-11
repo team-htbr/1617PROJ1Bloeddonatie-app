@@ -80,7 +80,7 @@
 							android:layout_height="wrap_content"
 							android:paddingBottom="15dp"
 							android:paddingLeft="20dp"
-							android:text="Kijk hier waar je dichtstbijzijnde donor centrum is " />
+							android:text="Kijk hier waar je dichtstbijzijnde donorcentrum is." />
 
 						<View
 							android:layout_width="match_parent"
@@ -168,7 +168,7 @@
 							android:layout_height="wrap_content"
 							android:paddingBottom="15dp"
 							android:paddingLeft="20dp"
-							android:text="Kijk snel of jij een geschikte donor bent" />
+							android:text="Kijk snel of jij een geschikte donor bent!" />
 
 						<View
 							android:layout_width="match_parent"
@@ -255,7 +255,7 @@
 							android:layout_height="wrap_content"
 							android:paddingBottom="15dp"
 							android:paddingLeft="20dp"
-							android:text="Selecteer hier jouw bloedgroep" />
+							android:text="Selecteer hier jouw bloedgroep." />
 
 						<View
 							android:layout_width="match_parent"

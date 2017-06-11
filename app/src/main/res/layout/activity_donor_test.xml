@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
@@ -26,7 +26,8 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp"
+				android:layout_marginTop="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_18plus"
@@ -42,7 +43,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Leeftijd"
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -59,7 +60,7 @@
 				<TextView
 					android:text="Ben je ouder dan 18 jaar ?"
 					android:layout_width="match_parent"
-					android:layout_height="match_parent"
+					android:layout_height="wrap_content"
 					android:gravity="center_vertical"
 					android:layout_marginLeft="10dp"
 					android:textSize="15sp" />
@@ -70,7 +71,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_sickness"
@@ -86,7 +87,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Ziektes "
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -94,7 +95,7 @@
 					<TextView
 						android:text="Ben je ziek of ben je minder dan 2 weken terug gezond?"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
 						android:textSize="15sp" />
 
@@ -105,7 +106,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_physical"
@@ -121,7 +122,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Fysieke gezondheid"
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -129,7 +130,7 @@
 					<TextView
 						android:text="Is je BMI niet hoog of te laag?"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
 						android:textSize="15sp" />
 
@@ -141,7 +142,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_blood"
@@ -158,7 +159,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Vorige donaties"
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -166,7 +167,7 @@
 					<TextView
 						android:text="Is je vorige donatie langer dan 2 maanden geleden?"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
 						android:textSize="15sp" />
 
@@ -178,7 +179,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_travelling"
@@ -194,7 +195,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Buitenlandse reizen"
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -202,7 +203,7 @@
 					<TextView
 						android:text="Ben je in de laatste 6 maanden op reis gegaan naar het buitenland?"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
 						android:textSize="15sp" />
 
@@ -214,7 +215,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_operation"
@@ -230,7 +231,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Operaties "
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -238,7 +239,7 @@
 					<TextView
 						android:text="Ben je in de laatste 4 maanden een operatie ondergaan?"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
 						android:textSize="15sp" />
 
@@ -250,7 +251,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_pregnancy"
@@ -266,7 +267,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Zwangerschap"
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -274,7 +275,7 @@
 					<TextView
 						android:text="Ben je zwanger of is ben je minder dan 6 maand geleden bevallen?"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
 						android:textSize="15sp" />
 
@@ -286,7 +287,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_tattoo"
@@ -302,7 +303,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Tatoeages &amp; piercings"
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -310,7 +311,7 @@
 					<TextView
 						android:text="Heb je in de laatste 4 maanden een tatoeage of piercing laten zetten?"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
 						android:textSize="15sp" />
 
@@ -322,7 +323,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_blood"
@@ -338,7 +339,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Contact met bloed"
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -346,7 +347,7 @@
 					<TextView
 						android:text="Ben je in de laatste 4 maanden in contact gekomen met menselijk bloed van iemand anders?"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
 						android:textSize="15sp" />
 
@@ -358,7 +359,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_sex"
@@ -374,7 +375,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Seksuele partner(s)"
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -382,7 +383,7 @@
 					<TextView
 						android:text="Heb je in het afgelopen jaar seks gehad met een partner die hiv-seropositief is?"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
 						android:textSize="15sp" />
 
@@ -395,7 +396,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_medication"
@@ -411,7 +412,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Medicatie"
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -419,7 +420,7 @@
 					<TextView
 						android:text="Heb je in de afgelopen maand medicatie genomen of een vaccinatie gehad?"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
 						android:textSize="15sp" />
 
@@ -431,7 +432,7 @@
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
-				android:layout_marginBottom="10dp">
+				android:layout_marginBottom="30dp">
 
 				<ImageView
 					android:src="@drawable/ic_drugs"
@@ -447,7 +448,7 @@
 
 					<TextView
 						android:layout_width="match_parent"
-						android:layout_height="20dp"
+						android:layout_height="wrap_content"
 						android:text="Druggebruik"
 						android:textStyle="bold"
 						android:textSize="18sp" />
@@ -455,7 +456,7 @@
 					<TextView
 						android:text="Heb je ooit drugs gespoten of in de laatste 4 maanden gesnoven?"
 						android:layout_width="match_parent"
-						android:layout_height="match_parent"
+						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
 						android:textSize="15sp" />
 
@@ -467,4 +468,4 @@
 
 
 
-</android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.DrawerLayout>
