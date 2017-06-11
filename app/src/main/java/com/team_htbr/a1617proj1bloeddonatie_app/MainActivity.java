@@ -53,6 +53,38 @@ public class MainActivity extends AppCompatActivity {
 		locationsList = new ArrayList<>();
 		locationKeys = loadList();
 
+		locationKeys.clear();
+
+		requestPermissions(new String[] { Manifest.permission.ACCESS_FINE_LOCATION}, 1234);
+
+		connectToGoogleApi();
+
+		Button btnBloodtype = (Button) findViewById(R.id.Bloodtype);
+		btnBloodtype.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, SubscribeBloodtypeActivity.class));
+			}
+		});
+
+		Button btnDonorTest = (Button) findViewById(R.id.donorTest);
+		btnDonorTest.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, DonorTestActivity.class));
+			}
+		});
+
+		Button btnMaps = (Button) findViewById(R.id.GoogleMap);
+		btnMaps.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startActivity(new Intent(MainActivity.this, MapsActivity.class));
+			}
+		});
+	}
+
+	private void checkDataBase() {
 		DatabaseReference fireBaseDataBase = FirebaseDatabase.getInstance().getReference();
 		DatabaseReference locationsDataBase = fireBaseDataBase.child("locations");
 
@@ -89,43 +121,6 @@ public class MainActivity extends AppCompatActivity {
 				Log.d(TAG, "bla bla");
 			}
 		});
-
-
-
-		Button btnBloodtype = (Button) findViewById(R.id.Bloodtype);
-		btnBloodtype.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				startActivity(new Intent(MainActivity.this, SubscribeBloodtypeActivity.class));
-			}
-		});
-
-		Button btnDonorTest = (Button) findViewById(R.id.donorTest);
-		btnDonorTest.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				startActivity(new Intent(MainActivity.this, DonorTestActivity.class));
-			}
-		});
-
-		Button btnMaps = (Button) findViewById(R.id.GoogleMap);
-		btnMaps.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				startActivity(new Intent(MainActivity.this, MapsActivity.class));
-			}
-		});
-
-		connectToGoogleApi();
-
-		final Handler handler = new Handler();
-		handler.postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				startLocationMoitoring();
-			}
-		}, 5000);
-
 	}
 
 	private void connectToGoogleApi() {
@@ -207,13 +202,6 @@ public class MainActivity extends AppCompatActivity {
 				Log.d(TAG, "no connection");
 			} else {
 				if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-					// TODO: Consider calling
-					//    ActivityCompat#requestPermissions
-					// here to request the missing permissions, and then overriding
-					//   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-					//                                          int[] grantResults)
-					// to handle the case where the user grants the permission. See the documentation
-					// for ActivityCompat#requestPermissions for more details.
 					return;
 				}
 				LocationServices.GeofencingApi.addGeofences(googleApiClient, geofencingRequest, pendingIntent)
@@ -265,6 +253,23 @@ public class MainActivity extends AppCompatActivity {
 		}
 
 		return loadedList;
+	}
+
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+		switch (requestCode) {
+			case 1234: {
+				if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+					startLocationMoitoring();
+					checkDataBase();
+				} else {
+					return;
+				}
+			}
+			default: {
+				return;
+			}
+		}
 	}
 }
 
