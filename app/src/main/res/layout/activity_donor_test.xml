@@ -19,15 +19,16 @@
 			android:layout_height="wrap_content"
 			tools:layout_editor_absoluteY="10dp"
 			tools:layout_editor_absoluteX="10dp"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="20dp">
+			android:layout_marginLeft="12dp"
+			android:layout_marginRight="20dp"
+			android:weightSum="1">
 
 			<LinearLayout
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
 				android:layout_height="60dp"
 				android:layout_marginBottom="30dp"
-				android:layout_marginTop="30dp">
+				android:layout_marginTop="20dp">
 
 				<ImageView
 					android:src="@drawable/ic_18plus"
@@ -97,7 +98,7 @@
 			<LinearLayout
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
-				android:layout_height="60dp"
+				android:layout_height="wrap_content"
 				android:layout_marginBottom="30dp">
 
 				<ImageView
@@ -113,17 +114,19 @@
 					android:gravity="center_vertical">
 
 					<TextView
+						android:id="@+id/textView2"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:text="Fysieke gezondheid"
-						android:textStyle="bold"
-						android:textSize="18sp" />
+						android:textSize="18sp"
+						android:textStyle="bold" />
 
 					<TextView
-						android:text="Je BMI ligt tussen 18,7 en 23,8 (vrouwen) of tussen 20 en 25 (mannen)."
+						android:id="@+id/textView3"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
+						android:text="Je BMI ligt tussen 18,7 en 23,8 (vrouwen) of tussen 20 en 25 (mannen)."
 						android:textSize="15sp" />
 
 				</LinearLayout>
@@ -170,7 +173,7 @@
 			<LinearLayout
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
-				android:layout_height="60dp"
+				android:layout_height="wrap_content"
 				android:layout_marginBottom="30dp">
 
 				<ImageView
@@ -242,8 +245,9 @@
 			<LinearLayout
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
-				android:layout_height="60dp"
-				android:layout_marginBottom="30dp">
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="30dp"
+				android:layout_weight="0.04">
 
 				<ImageView
 					android:src="@drawable/ic_pregnancy"
@@ -278,7 +282,7 @@
 			<LinearLayout
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
-				android:layout_height="60dp"
+				android:layout_height="wrap_content"
 				android:layout_marginBottom="30dp">
 
 				<ImageView
@@ -314,7 +318,7 @@
 			<LinearLayout
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
-				android:layout_height="60dp"
+				android:layout_height="wrap_content"
 				android:layout_marginBottom="30dp">
 
 				<ImageView
@@ -350,7 +354,7 @@
 			<LinearLayout
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
-				android:layout_height="60dp"
+				android:layout_height="wrap_content"
 				android:layout_marginBottom="30dp">
 
 				<ImageView
@@ -387,7 +391,7 @@
 			<LinearLayout
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
-				android:layout_height="60dp"
+				android:layout_height="wrap_content"
 				android:layout_marginBottom="30dp">
 
 				<ImageView
@@ -423,8 +427,8 @@
 			<LinearLayout
 				android:orientation="horizontal"
 				android:layout_width="match_parent"
-				android:layout_height="60dp"
-				android:layout_marginBottom="30dp">
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="20dp">
 
 				<ImageView
 					android:src="@drawable/ic_drugs"
@@ -436,7 +440,8 @@
 					android:layout_height="match_parent"
 					android:orientation="vertical"
 					android:layout_marginLeft="10dp"
-					android:gravity="center_vertical">
+					android:gravity="center_vertical"
+					android:weightSum="1">
 
 					<TextView
 						android:layout_width="match_parent"
@@ -450,7 +455,8 @@
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
-						android:textSize="15sp" />
+						android:textSize="15sp"
+						android:layout_weight="14" />
 
 				</LinearLayout>
 
