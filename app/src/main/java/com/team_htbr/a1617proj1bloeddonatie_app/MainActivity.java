@@ -66,8 +66,7 @@ public class MainActivity extends AppCompatActivity {
 		geofences = new ArrayList<>();
 		locationsList = new ArrayList<>();
 		locationKeys = loadList();
-
-		locationKeys.clear();
+		
 
 		requestPermissions(new String[] { Manifest.permission.ACCESS_FINE_LOCATION}, 1234);
 
@@ -343,7 +342,7 @@ public class MainActivity extends AppCompatActivity {
 		}
 		return super.onOptionsItemSelected(item);
   }
-  
+
 	public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
 		switch (requestCode) {
 			case 1234: {
