@@ -18,7 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * @author bjorn
@@ -27,7 +26,7 @@ import java.util.Locale;
 public class GeofenceService extends IntentService {
 
 	public static final String TAG = "GeofenceService";
-	static SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
 
 
 	public GeofenceService() {
@@ -57,7 +56,7 @@ public class GeofenceService extends IntentService {
 			SharedPreferences.Editor editor = sharedPreferences.edit();
 			String savedDate = sharedPreferences.getString(requestId, "");
 
-			if (savedDate == "") {
+			if (savedDate.equals("")) {
 				editor.putString(requestId, currentDate);
 				editor.apply();
 				testTranistion(transition,requestId);
