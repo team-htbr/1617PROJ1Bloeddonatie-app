@@ -5,14 +5,17 @@
 		<item
 			android:id="@+id/nav_centra"
 			android:icon="@drawable/ic_menu_location"
+			android:onClick="redirectMaps"
 			android:title="Donorcentra" />
 		<item
 			android:id="@+id/nav_test"
 			android:icon="@drawable/ic_menu_test"
+			android:onClick="redirectDonorTest"
 			android:title="Zelfdonortest" />
 		<item
 			android:id="@+id/nav_bloedtype"
 			android:icon="@drawable/ic_menu_bloed"
+			android:onClick="redirectBloodType"
 			android:title="Bloedtype" />
 		<item
 			android:id="@+id/nav_afspraak"

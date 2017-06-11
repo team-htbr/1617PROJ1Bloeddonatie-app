@@ -142,6 +142,18 @@ public class MainActivity extends AppCompatActivity {
 
 	}
 
+	public void redirectMaps(MenuItem item){
+		startActivity(new Intent(MainActivity.this, MapsActivity.class));
+	}
+
+	public void redirectDonorTest(MenuItem item){
+		startActivity(new Intent(MainActivity.this, DonorTestActivity.class));
+	}
+
+	public void redirectBloodType(MenuItem item){
+		startActivity(new Intent(MainActivity.this, SubscribeBloodtypeActivity.class));
+	}
+
 	private void connectToGoogleApi() {
 		if (googleApiClient == null) {
 			googleApiClient = new GoogleApiClient.Builder(this)

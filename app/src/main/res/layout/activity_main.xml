@@ -13,16 +13,18 @@
 		android:layout_width="368dp"
 		android:layout_height="495dp"
 		tools:layout_editor_absoluteY="8dp"
-		tools:layout_editor_absoluteX="8dp"
-		android:layout_marginBottom="16dp">>
+		tools:layout_editor_absoluteX="8dp">>
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:orientation="vertical">
+			android:orientation="vertical"
+			android:layout_marginBottom="16dp"
+			android:weightSum="1">
 
 			<android.support.constraint.ConstraintLayout
 				android:layout_width="match_parent"
-				android:layout_height="match_parent">
+				android:layout_height="match_parent"
+				android:layout_weight="1.04">
 
 				<android.support.v7.widget.CardView
 					android:id="@+id/Location"
