@@ -54,9 +54,9 @@ public class GeofenceService extends IntentService {
 
 			SharedPreferences sharedPreferences = getSharedPreferences("dates", MODE_PRIVATE);
 			SharedPreferences.Editor editor = sharedPreferences.edit();
-			String savedDate = sharedPreferences.getString(requestId, "");
+			String savedDate = sharedPreferences.getString(requestId, null);
 
-			if (savedDate.equals("")) {
+			if (savedDate.equals(null)) {
 				editor.putString(requestId, currentDate);
 				editor.apply();
 				testTranistion(transition,requestId);
