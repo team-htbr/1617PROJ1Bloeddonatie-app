@@ -49,7 +49,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Ben je ouder dan 18 jaar ?"
+						android:text="Je bent minstens 18 jaar oud."
 						android:layout_width="match_parent"
 						android:layout_height="match_parent"
 						android:gravity="center_vertical"
@@ -85,7 +85,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Ben je ziek of ben je minder dan 2 weken terug gezond?"
+						android:text="Je bent de laatste 2 weken niet ziek geweest."
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
@@ -120,7 +120,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Is je BMI niet hoog of te laag?"
+						android:text="Je BMI ligt tussen 18,7 en 23,8 (vrouwen) of tussen 20 en 25 (mannen)."
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
@@ -157,7 +157,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Is je vorige donatie langer dan 2 maanden geleden?"
+						android:text="Je laatste donatie dateert van minstens 2 maanden geleden."
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
@@ -193,7 +193,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Ben je in de laatste 6 maanden op reis gegaan naar het buitenland?"
+						android:text="Je bent in de laatste 6 maanden niet buiten Europa op reis geweest."
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
@@ -229,7 +229,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Ben je in de laatste 4 maanden een operatie ondergaan?"
+						android:text="Je hebt de laatste 4 maanden geen operatie ondergaan."
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
@@ -265,7 +265,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Ben je zwanger of is ben je minder dan 6 maand geleden bevallen?"
+						android:text="Je bent niet zwanger en je laatste bevalling dateert van minstens 6 maanden geleden."
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
@@ -301,7 +301,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Heb je in de laatste 4 maanden een tatoeage of piercing laten zetten?"
+						android:text="Je hebt de laatste 4 maanden geen piercing of tatoeage laten zetten."
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
@@ -337,7 +337,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Ben je in de laatste 4 maanden in contact gekomen met menselijk bloed van iemand anders?"
+						android:text="Je bent in de laatste 4 maanden niet in contact geweest met bloed van iemand anders."
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
@@ -373,7 +373,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Heb je in het afgelopen jaar seks gehad met een partner die hiv-seropositief is?"
+						android:text="Je hebt het afgelopen jaar geen seks gehad met een HIV-positief persoon."
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
@@ -410,7 +410,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Heb je in de afgelopen maand medicatie genomen of een vaccinatie gehad?"
+						android:text="Je hebt de laatste maand geen medicatie genomen en je hebt geen vaccinatie gehad."
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"
@@ -446,7 +446,7 @@
 						android:textSize="18sp" />
 
 					<TextView
-						android:text="Heb je ooit drugs gespoten of in de laatste 4 maanden gesnoven?"
+						android:text="Je hebt nooit drugs gespoten en hebt de voorbije 4 maanden geen drugs gesnoven."
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:gravity="center_vertical"

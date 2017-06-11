@@ -33,6 +33,7 @@
 					android:layout_marginRight="12dp"
 					android:layout_marginStart="12dp"
 					android:layout_marginTop="16dp"
+					android:layout_marginBottom="16dp"
 					app:layout_constraintLeft_toLeftOf="parent"
 					app:layout_constraintRight_toRightOf="parent"
 					app:layout_constraintTop_toTopOf="parent"
@@ -208,7 +209,8 @@
 					android:layout_marginLeft="12dp"
 					android:layout_marginRight="12dp"
 					android:layout_marginStart="12dp"
-					android:layout_marginTop="639dp"
+					android:layout_marginTop="624dp"
+					android:layout_marginBottom="16dp"
 					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintLeft_toLeftOf="parent"
 					app:layout_constraintRight_toRightOf="parent"
@@ -255,7 +257,7 @@
 							android:layout_height="wrap_content"
 							android:paddingBottom="15dp"
 							android:paddingLeft="20dp"
-							android:text="Selecteer hier jouw bloedgroep." />
+							android:text="Selecteer hier jouw bloedgroep en krijg aangepaste notificaties." />
 
 						<View
 							android:layout_width="match_parent"
