@@ -57,14 +57,6 @@
 
 				</LinearLayout>
 
-				<TextView
-					android:text="Ben je ouder dan 18 jaar ?"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:gravity="center_vertical"
-					android:layout_marginLeft="10dp"
-					android:textSize="15sp" />
-
 			</LinearLayout>
 
 			<LinearLayout
