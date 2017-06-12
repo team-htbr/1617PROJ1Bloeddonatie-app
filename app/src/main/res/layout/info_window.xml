@@ -12,8 +12,8 @@
 		android:src="@drawable/ic_bloeddonatie_logo" />
 
 	<LinearLayout
-		android:layout_width="181dp"
-		android:layout_height="66dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
 		android:orientation="vertical">
 
 		<TextView
