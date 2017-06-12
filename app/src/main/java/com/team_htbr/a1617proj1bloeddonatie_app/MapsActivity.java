@@ -1,10 +1,13 @@
 package com.team_htbr.a1617proj1bloeddonatie_app;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +40,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 		SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
 			.findFragmentById(R.id.map);
 		mapFragment.getMapAsync(this);
+
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
+
 	}
 
 	/**
@@ -148,5 +154,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 	private Marker addMarker(Location location) {
 		Marker marker = mMap.addMarker(location.getMarker());
 		return marker;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+
+		//noinspection SimplifiableIfStatement
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		else if(id == android.R.id.home){
+			Intent i= new Intent(this, MainActivity.class);
+			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+			startActivity(i);
+			finish();
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 }
