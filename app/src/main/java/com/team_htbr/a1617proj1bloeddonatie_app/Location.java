@@ -1,5 +1,9 @@
 package com.team_htbr.a1617proj1bloeddonatie_app;
 
+import android.graphics.drawable.BitmapDrawable;
+
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -60,12 +64,8 @@ public class Location {
 		this.city = city;
 	}
 
-	public void setMoblie(Boolean moblie) {
-		isMobile = moblie;
-	}
-
-	public void setMobile(Boolean mobile) {
-		isMobile = mobile;
+	public void setIsMobile(String isMobile) {
+		this.isMobile = Boolean.parseBoolean(isMobile);
 	}
 
 	public void setStartDate(String startDate) {
@@ -78,11 +78,6 @@ public class Location {
 
 	public void setMarker(MarkerOptions marker) {
 		this.marker = marker;
-	}
-
-	public Boolean getMobile() {
-
-		return isMobile;
 	}
 
 	public void setLat(double lat) {
@@ -114,7 +109,7 @@ public class Location {
 		return city;
 	}
 
-	public Boolean getMoblie() {
+	public Boolean getIsMobile() {
 		return isMobile;
 	}
 
@@ -147,9 +142,23 @@ public class Location {
 	}
 
 	public MarkerOptions getMarker() {
+		BitmapDescriptor markerIcon = BitmapDescriptorFactory.fromResource(R.drawable.ic_location_red);
+		BitmapDescriptor markerIconMobile = BitmapDescriptorFactory.fromResource(R.drawable.ic_location_mobile_red);
+
 		this.marker.position(this.getCoordinates());
 		this.marker.title(this.name);
 		this.marker.snippet(this.getAddress() + this.getDates());
+
+		if(this.isMobile == null) {
+			this.marker.icon(markerIcon);
+		} else {
+			if(this.isMobile == true) {
+				this.marker.icon(markerIconMobile);
+			} else {
+				this.marker.icon(markerIcon);
+			}
+		}
+
 
 		return this.marker;
 	}
