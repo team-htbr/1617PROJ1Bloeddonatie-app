@@ -10,7 +10,7 @@
 		<ImageView
 			android:layout_width="100dp"
 			android:layout_height="match_parent"
-			android:src="@mipmap/ic_launcher"
+			android:src="@drawable/ic_bloeddonatie_logo"
 			android:layout_alignParentTop="true"
 			android:layout_centerHorizontal="true" />
 	</RelativeLayout>

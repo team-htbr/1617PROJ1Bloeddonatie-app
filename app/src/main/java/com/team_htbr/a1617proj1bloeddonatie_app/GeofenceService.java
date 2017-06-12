@@ -47,8 +47,6 @@ public class GeofenceService extends IntentService {
 			Geofence geofence = geofences.get(0);
 			String requestId = geofence.getRequestId();
 
-//-----------------------------------------------------------------------------------------
-
 			Date today = new Date();
 			String currentDate = sdf.format(today);
 

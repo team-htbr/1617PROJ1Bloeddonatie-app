@@ -30,7 +30,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 		}
 
 		//Check if the message contains notification
-
 		if(remoteMessage.getNotification() != null) {
 			Log.d(TAG, "Message body:" + remoteMessage.getNotification().getBody());
 			sendNotification(remoteMessage.getNotification().getBody());
@@ -51,7 +50,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 		Uri notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
 		NotificationCompat.Builder notifiBuilder = new NotificationCompat.Builder(this)
-			.setSmallIcon(R.mipmap.ic_launcher)
+			.setSmallIcon(R.mipmap.ic_bloeddonatie_logo_notification)
 			.setContentTitle("Bloeddonatie")
 			.setContentText(body)
 			.setAutoCancel(true)

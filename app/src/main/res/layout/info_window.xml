@@ -9,7 +9,7 @@
 		android:id="@+id/tv_image"
 		android:layout_width="70dp"
 		android:layout_height="match_parent"
-		android:src="@mipmap/ic_launcher" />
+		android:src="@drawable/ic_bloeddonatie_logo" />
 
 	<LinearLayout
 		android:layout_width="181dp"

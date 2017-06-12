@@ -2,7 +2,6 @@ package com.team_htbr.a1617proj1bloeddonatie_app;
 
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -38,8 +37,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 		SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
 			.findFragmentById(R.id.map);
 		mapFragment.getMapAsync(this);
-
-
 	}
 
 	/**
@@ -63,9 +60,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 		if (currentLocation == null) {
 			mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(brussel, 9));
 		} else {
-			mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 13));
+			mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 9));
 		}
-
 
 		//enable search my location
 		if ((ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
