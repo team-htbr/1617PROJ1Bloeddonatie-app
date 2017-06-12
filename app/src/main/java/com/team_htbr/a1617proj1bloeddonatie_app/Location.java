@@ -1,7 +1,5 @@
 package com.team_htbr.a1617proj1bloeddonatie_app;
 
-import android.graphics.drawable.BitmapDrawable;
-
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
