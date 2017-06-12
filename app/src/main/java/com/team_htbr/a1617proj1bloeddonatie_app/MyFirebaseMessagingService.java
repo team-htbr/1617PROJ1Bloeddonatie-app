@@ -30,7 +30,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 		}
 
 		//Check if the message contains notification
-
 		if(remoteMessage.getNotification() != null) {
 			Log.d(TAG, "Message body:" + remoteMessage.getNotification().getBody());
 			sendNotification(remoteMessage.getNotification().getBody());
