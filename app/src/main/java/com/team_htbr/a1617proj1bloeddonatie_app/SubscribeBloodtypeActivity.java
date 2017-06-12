@@ -166,7 +166,7 @@ public class SubscribeBloodtypeActivity extends AppCompatActivity {
 		editor.putString("bloodtype", type);
 		editor.apply();
 
-		Toast.makeText(this, "opgeslagen", Toast.LENGTH_LONG).show();
+		Toast.makeText(this, "opgeslagen", Toast.LENGTH_SHORT).show();
 	}
 
 	private void getInfo() {
