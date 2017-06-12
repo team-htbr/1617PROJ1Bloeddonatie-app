@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		setTitle("Rode Kruis");
+		setTitle("Bloeddonatie");
 
 		DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
 		mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
